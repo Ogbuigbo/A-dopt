@@ -3,7 +3,6 @@
 import React from 'react'
 import { motion } from 'framer-motion';
 import SnakeLine from './SnakeLine';
-import Header from './Header';
 import Link from 'next/link';
 
 function Hero() {
@@ -17,7 +16,7 @@ function Hero() {
 
 
 <motion.div
-  className="flex flex-col items-center mt-16 lg:mt-[200px] xl:mt-[380px]  md:mt-24 h-full text-center text-white bg-opacity-60 px-6 md:px-12 z-20 relative"
+  className="flex flex-col items-center mt-16 lg:mt-[200px]   md:mt-24 h-full text-center text-white bg-opacity-60 px-6 md:px-12 z-20 relative"
   initial={{ opacity: 0, y: 50 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 1, delay: 0.5 }}
