@@ -19,7 +19,7 @@ function Hero() {
 
       {/* Content */}
       <motion.div
-        className="relative flex flex-col items-center px-6 lg:px-12 text-center z-20"
+        className="relative flex flex-col items-center px-6 lg:px-12 mt-16  text-center z-20"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5 }}
