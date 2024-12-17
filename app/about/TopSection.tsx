@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 function TopSection() {
   return (
-    <section className="pb-16 px-4 md:px-8 xl:px-[120px] mt-[100px]">
+    <section className="pb-16 px-4 md:px-8 xl:px-[120px] mt-[150px] md:mt-[100px]">
       {/* Title Section */}
       <div className="flex flex-col justify-center items-center text-center w-full">
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mt-10 md:mt-20 flex flex-col items-center justify-center gap-2">
