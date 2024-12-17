@@ -28,7 +28,7 @@ function LaboratoryServices() {
         {/* Image Section */}
         <div>
           <Image
-            src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1733919473/tenweb_media_rlPnvAPH_xe0wqh.webp" // Replace with the actual image path or URL
+            src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734427461/freepik__enhance__19328_hedemi.png" // Replace with the actual image path or URL
             alt="Advanced laboratory setup"
             width={800}
             height={300}

@@ -3,7 +3,7 @@ import React from 'react';
 
 function Leading() {
   return (
-    <section className="py-24 md:px-10 px-6 xl:px-[150px] lg:px-[50px]">
+    <section className="py-24 md:px-10 bg-[#f8f9fa] px-6 xl:px-[150px] lg:px-[50px]">
       <div className="mx-auto max-w-screen-xl flex flex-col lg:flex-row items-center gap-16">
         {/* Text Section */}
         <div className="lg:w-1/2 space-y-8">
@@ -34,7 +34,7 @@ function Leading() {
         {/* Image Section */}
         <div className="lg:w-1/2">
           <Image
-            src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1733919202/tenweb_media_81AISLLw_1_g8awyi.webp" // Replace with the actual image path or URL
+            src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734422971/465690926_1033945058505385_631866673145992697_n.webp_txueai.jpg" // Replace with the actual image path or URL
             alt="Environmental efforts and sustainability"
             width={500}
             height={500}

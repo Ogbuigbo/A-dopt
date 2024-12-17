@@ -85,11 +85,11 @@ function About() {
           transition={{ delay: 0.3, duration: 1 }}
         >
           <Image
-            src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1733915681/tenweb_media_uIBt3rdx_utdtos.webp"
+            src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734420135/warehouse-workers-wearing-yellow-helmets-laughing-chatting-work-smiling-african-american-men-storehouse-employees-protective-hard-hats-overall-having-fun-conversation_luxwyz.jpg"
             alt="Team of A-Dopt International Services"
             width={500}
-            height={500}
-            className="w-full rounded-md object-cover"
+            height={700}
+            className="w-full rounded-md object-cover h-[300px] lg:h-[600px]"
           />
         </motion.div>
       </motion.div>

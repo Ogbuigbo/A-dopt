@@ -8,6 +8,7 @@ import LaboratoryServices from "./_components/LaboratoryServices";
 import ProcurementSolutions from "./_components/Logistics";
 import Footer from "./_components/Footer";
 import Hero from "./_components/Hero";
+import Logo from "./_components/Logo";
 
 
 export default function Home() {
@@ -17,9 +18,12 @@ export default function Home() {
       <Hero/>
       <About />
       <Services />
+      <Logo/>
       <Leading />
-      <LaboratoryServices />
       <ProcurementSolutions />
+      <LaboratoryServices />
+     
+   
     </div>
   );
 }

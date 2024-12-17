@@ -1,13 +1,12 @@
 import React from 'react'
 import Header from '../_components/Header'
-import Section from './Section'
+import TopSection from '../assets/TopSection'
 
 function page() {
   return (
     <div>
       <Header/>
-      <Section />
-
+      <TopSection/>
     </div>
   )
 }
