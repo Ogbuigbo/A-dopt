@@ -1,5 +1,8 @@
-import Image from 'next/image';
-import React from 'react';
+"use client";
+
+import Image from "next/image";
+import React from "react";
+import CountUp from "react-countup";
 
 function Leading() {
   return (
@@ -17,13 +20,18 @@ function Leading() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Statistics Section */}
             <div>
-              <h2 className="text-5xl font-bold text-gray-900">95%</h2>
+              <h2 className="lg:text-5xl text-3xl font-bold text-gray-900">
+                <CountUp start={0} end={95} duration={2.5} suffix="%" />
+              </h2>
               <p className="text-gray-600">
                 Client satisfaction rate in environmental projects.
               </p>
             </div>
             <div>
-              <h2 className="text-5xl font-bold text-gray-900">150 projects</h2>
+              <h2 className="lg:text-5xl text-3xl font-bold text-gray-900">
+                <CountUp start={0} end={150} duration={2.5} />
+                {" projects"}
+              </h2>
               <p className="text-gray-600">
                 Successful environmental projects completed.
               </p>
@@ -34,7 +42,7 @@ function Leading() {
         {/* Image Section */}
         <div className="lg:w-1/2">
           <Image
-            src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734422971/465690926_1033945058505385_631866673145992697_n.webp_txueai.jpg" // Replace with the actual image path or URL
+            src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734422971/465690926_1033945058505385_631866673145992697_n.webp_txueai.jpg"
             alt="Environmental efforts and sustainability"
             width={500}
             height={500}

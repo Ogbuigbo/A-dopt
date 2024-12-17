@@ -11,10 +11,13 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
     "framer-motion": "^11.14.0",
+    "install": "^0.13.0",
     "lucide-react": "^0.451.0",
     "next": "14.2.7",
     "nodemailer": "^6.9.15",
+    "npm": "^11.0.0",
     "react": "^18",
+    "react-countup": "^6.5.3",
     "react-dom": "^18",
     "react-intersection-observer": "^9.13.1",
     "react-slick": "^0.30.2",
