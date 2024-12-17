@@ -22,7 +22,7 @@ function TopSection() {
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Our Commitment to Excellence
           </h2>
-          <p className="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed">
+          <p className="text-sm md:text-base lg:text-lg text-justify text-gray-700 leading-relaxed">
             A-Dopt International Services Nigeria Limited was founded in 2009 with a vision to provide top-tier engineering consultancy services. Our mission is to deliver high-quality solutions that not only meet client needs but also promote sustainable practices. We pride ourselves on our core values: Integrity, Excellence, Innovation, and Sustainability. These principles guide our operations and ensure that we maintain the highest standards in every project we undertake, fostering a culture of continuous improvement and environmental stewardship.
           </p>
         </div>
