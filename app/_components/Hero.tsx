@@ -28,7 +28,7 @@ function Hero() {
           Empowering Engineering Excellence
         </h1>
         <p className="text-lg md:text-xl mb-8 lg:w-[800px]">
-          At A-DOPT International Services, we specialize in Industrial Automation, Electromechanical, and Instrumental Engineering. Our mission is to deliver innovative solutions that drive success for our clients worldwide.
+          At A-DOPT International Services, we specialize in Industrial Automation, Electromechanical, Instrumental Engineering and Enviromental Services. <br /> Our mission is to deliver innovative solutions that drive success for our clients worldwide.
         </p>
 
         {/* Snake Line */}

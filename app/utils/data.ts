@@ -1,10 +1,18 @@
 export const NAV_LINKS = [
-    { href: '/', key: 'home', label: 'Home' },
-    { href: '/about', key: 'about', label: 'About Us' },
-    { href: '/services', key: 'service', label: 'Services' },
-
-    { href: '/contact', key: 'contact', label: 'Contact' },
-  ];
+  { href: "/", label: "Home", key: "home" },
+  { href: "/about", label: "About", key: "about" },
+  {
+    href: "/services",
+    label: "Services",
+    key: "services",
+    children: [
+      { label: "Consulting", href: "/services/consulting" },
+      { label: "Automation", href: "/services/automation" },
+      { label: "Testing", href: "/services/testing" },
+    ],
+  },
+  { href: "/contact", label: "Contact", key: "contact" },
+];
 
   export const ITEMS = [
     {
@@ -18,7 +26,7 @@ export const NAV_LINKS = [
       description: 'We help clients implement sustainable practices and comply with environmental regulations for better stewardship.',
     },
     {
-      icons: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734350227/laboratory_cu9e9e.png',
+      icons: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734527486/freepik__enhance__71371_upgrxf.png',
       title: 'State-of-the-Art Laboratory Services',
       description: 'Our laboratory offers reliable testing and analysis, supporting engineering projects with high standards of quality.',
     },

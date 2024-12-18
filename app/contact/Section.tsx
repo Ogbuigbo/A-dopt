@@ -35,7 +35,7 @@ function Section() {
           {/* Email Address */}
           <div className="flex items-center gap-4">
             <Mail className="w-6 h-6 " />
-            <span>Info@adislimited.com</span>
+            <span>Info@adislimited.com, adoptinterservenigltd@yahoo.ccom</span>
           </div>
         </div>
       </div>

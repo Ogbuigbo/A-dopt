@@ -84,7 +84,7 @@ function TopSection() {
   <div className="mt-6 md:mt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-8 text-left">
     <div className="w-full md:w-3/4">
       <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-        Automation Solutions
+       Engineering Solutions
       </h2>
       <p className="text-gray-600 mt-2 text-sm md:text-base">
         Delivering advanced industrial automation for various sectors.

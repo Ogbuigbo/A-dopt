@@ -39,9 +39,9 @@ function About() {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              <h2 className="text-3xl font-bold text-gray-900">200 projects</h2>
-              <p className="text-gray-600">
-                We have successfully completed over 200 projects across various sectors, showcasing our expertise and commitment to quality.
+              <h2 className="text-3xl font-bold text-gray-900">Mission</h2>
+              <p className="text-gray-600 mt-4">
+              To ensure efficient and prompt service delivery in concurrence with clients. Strategic objectives and policies while ensuring that optimal standard is maintained.
               </p>
             </motion.div>
             <motion.div
@@ -49,12 +49,12 @@ function About() {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              <h2 className="text-3xl font-bold text-gray-900">50 clients</h2>
-              <p className="text-gray-600">
-                Our client base has grown to include over 50 satisfied clients, reflecting our dedication to meeting their unique needs.
+              <h2 className="text-3xl font-bold text-gray-900">Vision</h2>
+              <p className="text-gray-600 mt-4">
+              To be the most preferred indigenous EEPC company providing valuable solutions to our clients in Nigeria and around the Globe and to become the foremost Engineering and Environmental Consulting Firm in Nigeria and West Africa.
               </p>
             </motion.div>
-            <motion.div
+            {/* <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.8 }}
@@ -73,7 +73,7 @@ function About() {
               <p className="text-gray-600">
                 Our core values include Integrity, Excellence, Innovation, and Sustainability, guiding us in every project we undertake.
               </p>
-            </motion.div>
+            </motion.div> */}
           </div>
         </motion.div>
 
