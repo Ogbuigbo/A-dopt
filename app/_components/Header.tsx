@@ -18,6 +18,7 @@ function Header() {
   const [activeLink, setActiveLink] = useState("/");
   const [isScrolled, setIsScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const router = usePathname();
 
   useEffect(() => {
@@ -42,6 +43,10 @@ function Header() {
     setOpenDropdown((prev) => (prev === key ? null : key));
   };
 
+  const handleMobileDropdown = (key: string | null) => {
+    setMobileDropdown((prev) => (prev === key ? null : key));
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 w-full px-6 lg:px-12 flex flex-col justify-between text-black bg-white shadow-md z-50 transition-all duration-300 ease-in-out ${
@@ -63,58 +68,57 @@ function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex space-x-8 text-lg font-medium text-[#00205B]">
-  {NAV_LINKS.map((link) => (
-    <div
-      key={link.key}
-      className="relative group"
-      onMouseEnter={() => setOpenDropdown(link.key.toString())}
-      onMouseLeave={() => setOpenDropdown(null)}
-    >
-      <div className="flex items-center gap-1 cursor-pointer group-hover:text-[#C8102E]">
-        <Link
-          href={link.href}
-          onClick={() => setActiveLink(link.href)}
-          className={`pb-1 transition-all ${
-            activeLink === link.href
-              ? "text-[#C8102E] border-b-2 border-[#C8102E]"
-              : "hover:text-[#C8102E]"
-          }`}
-        >
-          {link.label}
-        </Link>
-        {link.children && (
-          <ChevronDown
-            className={`w-5 h-5 text-[#00205B]  group-hover:text-[#C8102E] transition-transform ${
-              openDropdown === link.key.toString() ? "rotate-180" : ""
-            }`}
-          />
-        )}
-      </div>
-
-      {/* Dropdown Menu */}
-      {link.children && (
-        <div
-          className={`absolute left-0 top-full mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ${
-            openDropdown === link.key.toString()
-              ? "opacity-100 visible"
-              : ""
-          }`}
-        >
-          {link.children.map((child) => (
-            <Link
-              key={child.href}
-              href={child.href}
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 border-b last:border-none transition-all"
+          {NAV_LINKS.map((link) => (
+            <div
+              key={link.key}
+              className="relative group"
+              onMouseEnter={() => setOpenDropdown(link.key.toString())}
+              onMouseLeave={() => setOpenDropdown(null)}
             >
-              {child.label}
-            </Link>
-          ))}
-        </div>
-      )}
-    </div>
-  ))}
-</nav>
+              <div className="flex items-center gap-1 cursor-pointer group-hover:text-[#C8102E]">
+                <Link
+                  href={link.href}
+                  onClick={() => setActiveLink(link.href)}
+                  className={`pb-1 transition-all ${
+                    activeLink === link.href
+                      ? "text-[#C8102E] border-b-2 border-[#C8102E]"
+                      : "hover:text-[#C8102E]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+                {link.children && (
+                  <ChevronDown
+                    className={`w-5 h-5 text-[#00205B] group-hover:text-[#C8102E] transition-transform ${
+                      openDropdown === link.key.toString() ? "rotate-180" : ""
+                    }`}
+                  />
+                )}
+              </div>
 
+              {/* Dropdown Menu */}
+              {link.children && (
+                <div
+                  className={`absolute left-0 top-full mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ${
+                    openDropdown === link.key.toString()
+                      ? "opacity-100 visible"
+                      : ""
+                  }`}
+                >
+                  {link.children.map((child) => (
+                    <Link
+                      key={child.href}
+                      href={child.href}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 border-b last:border-none transition-all"
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </nav>
 
         {/* Contact Us Button */}
         <div className="hidden lg:block">
@@ -138,7 +142,7 @@ function Header() {
 
       {/* Mobile Navigation */}
       <div
-        className={`absolute top-[80px] left-0 w-full bg-white shadow-md transform z-50 ${
+        className={`absolute top-[110px] left-0 w-full bg-white shadow-md transform z-50 ${
           !nav
             ? "opacity-0 pointer-events-none translate-y-full"
             : "opacity-100 pointer-events-auto translate-y-0"
@@ -147,31 +151,46 @@ function Header() {
         <ul className="py-3 flex flex-col items-center gap-2">
           {NAV_LINKS.map((link: NavLink) => (
             <li key={link.key} className="w-full text-center">
-              <Link
-                href={link.href}
-                className={`block py-2 text-black hover:text-[#C8102E] transition ${
-                  activeLink === link.href ? "text-[#C8102E]" : ""
-                }`}
-                onClick={() => setNav(false)}
-              >
-                {link.label}
-              </Link>
+              <div className="relative">
+                {/* Mobile Navigation Items (Link + ChevronDown) */}
+                <div className="flex items-center justify-center gap-1 px-4 py-2">
+                  <Link
+                    href={link.href}
+                    className={`block py-2 text-black hover:text-[#C8102E] transition-all ${
+                      activeLink === link.href ? "text-[#C8102E]" : ""
+                    }`}
+                    onClick={() => setNav(false)}
+                  >
+                    {link.label}
+                  </Link>
 
-              {/* Mobile Dropdown */}
-              {link.children && (
-                <div className="flex flex-col bg-gray-100">
-                  {link.children.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
-                      onClick={() => setNav(false)}
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
+                  {/* Mobile Dropdown (ChevronDown) */}
+                  {link.children && (
+                    <ChevronDown
+                      className={`w-5 h-5 transition-transform mt-1 ${
+                        mobileDropdown === link.key.toString() ? "rotate-180" : ""
+                      }`}
+                      onClick={() => handleMobileDropdown(link.key.toString())} // Toggle dropdown on mobile
+                    />
+                  )}
                 </div>
-              )}
+
+                {/* Mobile Submenu (Dropdown content) */}
+                {link.children && mobileDropdown === link.key.toString() && (
+                  <div className="flex flex-col bg-gray-100">
+                    {link.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
+                        onClick={() => setNav(false)}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             </li>
           ))}
         </ul>
