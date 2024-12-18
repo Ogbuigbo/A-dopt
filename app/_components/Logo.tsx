@@ -24,10 +24,19 @@ const Logo = () => {
         alt: 'AOs Orwell',
       },
       {
+        src: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734516905/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2022-04-29_%D0%B2_23.42.01_xx6wxe.png',
+        alt: 'Shell',
+      },
+      {
+        src: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734516906/V-P-EMB-D-00001_500_kzy6xk.jpg',
+        alt: 'AOs Orwell',
+      },
+      {
         src: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734339795/images_4_ufsgo2.png',
         alt: 'Shell',
       },
   ];
+
 
   return (
     <section className="text-center  xl:px-[150px] lg:px-[60px] md:px-10  py-10 px-6">
