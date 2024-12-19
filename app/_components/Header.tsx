@@ -27,18 +27,14 @@ function Header() {
         setNav(false);
       }
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   useEffect(() => {
-    if (router === "/") {
-      setActiveLink("/");
-    } else {
-      setActiveLink(router);
-    }
+    setActiveLink(router); // Update active link on route change
   }, [router]);
 
   useEffect(() => {
@@ -121,7 +117,7 @@ function Header() {
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 border-b last:border-none transition-all"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 border-b last:border-none transition-all hover:text-[#C8102E]"
                     >
                       {child.label}
                     </Link>
@@ -164,37 +160,43 @@ function Header() {
           {NAV_LINKS.map((link: NavLink) => (
             <li key={link.key} className="w-full text-center">
               <div className="relative">
-                {/* Mobile Navigation Items (Link + ChevronDown) */}
-                <div className="flex items-center justify-center gap-1 px-4 py-2">
+                {/* Mobile Navigation Items */}
+                <div
+                  className={`flex items-center justify-center gap-1 px-4 py-2 ${
+                    activeLink === link.href
+                      ? "text-[#C8102E] border-b-2 border-[#C8102E] font-bold"
+                      : "hover:text-[#C8102E] hover:border-b-2 hover:border-[#C8102E]"
+                  } transition-all`}
+                >
                   <Link
                     href={link.href}
-                    className={`block py-2 text-black hover:text-[#C8102E] transition-all ${
-                      activeLink === link.href ? "text-[#C8102E]" : ""
+                    className={`block py-2 ${
+                      activeLink === link.href ? "text-[#C8102E]" : "text-black"
                     }`}
                     onClick={() => setNav(false)}
                   >
                     {link.label}
                   </Link>
 
-                  {/* Mobile Dropdown (ChevronDown) */}
+                  {/* Mobile Dropdown */}
                   {link.children && (
                     <ChevronDown
                       className={`w-5 h-5 transition-transform mt-1 ${
                         mobileDropdown === link.key.toString() ? "rotate-180" : ""
                       }`}
-                      onClick={() => handleMobileDropdown(link.key.toString())} // Toggle dropdown on mobile
+                      onClick={() => handleMobileDropdown(link.key.toString())}
                     />
                   )}
                 </div>
 
-                {/* Mobile Submenu (Dropdown content) */}
+                {/* Mobile Submenu */}
                 {link.children && mobileDropdown === link.key.toString() && (
                   <div className="flex flex-col bg-gray-100">
                     {link.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
+                        className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-[#C8102E] transition-all"
                         onClick={() => setNav(false)}
                       >
                         {child.label}
