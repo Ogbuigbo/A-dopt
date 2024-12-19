@@ -22,6 +22,18 @@ function Header() {
   const router = usePathname();
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setNav(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
     if (router === "/") {
       setActiveLink("/");
     } else {
