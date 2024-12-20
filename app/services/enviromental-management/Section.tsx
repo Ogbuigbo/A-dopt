@@ -8,7 +8,7 @@ function Section() {
       <div className="flex flex-col md:flex-row items-start  justify-between mb-8">
         {/* Header */}
         <div className="md:w-1/2 mb-4 md:mb-0">
-          <h1 className="text-2xl md:text-5xl font-bold text-black">
+          <h1 className="text-3xl md:text-5xl font-bold text-black">
             Comprehensive <br /> Environmental <br /> Consultancy Services
           </h1>
         </div>

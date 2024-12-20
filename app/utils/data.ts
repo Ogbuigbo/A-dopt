@@ -9,7 +9,7 @@ export const NAV_LINKS = [
       { label: "Engineering Consultation", href: "/services/consulting" },
       { label: "Enivomental Management", href: "/services/enviromental-management" },
       { label: "Geotechnical ", href: "/services/testing" },
-      { label: "Laboratory Testing", href: "/services/testing" },
+      { label: "Laboratory Testing", href: "/services/laboratory-testing" },
       { label: "Procurement and Logistics ", href: "/services/testing" },
     ],
   },

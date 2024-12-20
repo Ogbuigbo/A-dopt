@@ -196,7 +196,11 @@ function Header() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-[#C8102E] transition-all"
+                        className={`px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-[#C8102E] transition-all ${
+                          activeLink === child.href
+                            ? "text-[#C8102E] border-b-2 border-[#C8102E] font-bold"
+                            : "hover:text-[#C8102E] hover:border-b-2 hover:border-[#C8102E]"
+                        }`}
                         onClick={() => setNav(false)}
                       >
                         {child.label}

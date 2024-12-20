@@ -3,7 +3,7 @@ import React from 'react';
 function Section() {
   const services = [
     {
-      title: 'Industrial Automation Solutions',
+      title: 'Engineering Solutions',
       description:
         'Our cutting-edge automation solutions are designed to optimize industrial operations. By integrating advanced technologies, we help businesses achieve unparalleled efficiency and productivity. From robotics to process control systems, our solutions are tailored to meet the unique demands of each client.',
       image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734598882/tenweb_media_jaPrDqlM_jztsvb.webp',
@@ -15,7 +15,7 @@ function Section() {
       image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734598882/tenweb_media_nlVHtYte_ra2ofi.webp',
     },
     {
-      title: 'State-of-the-Art Laboratory Services',
+      title: 'Laboratory Services',
       description:
         'Equipped with the latest technology, our laboratory offers a comprehensive range of testing services. We ensure all products and systems meet strict quality, safety, and compliance standards, giving our clients the confidence they need to innovate and grow.',
       image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734598882/tenweb_media_QtxKomEP_havjtq.webp',
