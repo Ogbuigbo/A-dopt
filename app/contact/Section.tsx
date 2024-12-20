@@ -82,12 +82,13 @@ function Section() {
 
   {/* Right Section (Map) */}
   <div className="w-full lg:w-[500px] h-[300px]">
-    <iframe
-      className="w-full h-full rounded-md shadow-md"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093546!2d-122.41941548468127!3d37.77492927975971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ2JzMwLjciTiAxMjLCsDI1JzA3LjQiVw!5e0!3m2!1sen!2sus!4v1617186804000!5m2!1sen!2sus"
-      loading="lazy"
-      title="Our Location Map"
-    ></iframe>
+  <iframe
+  className="w-full h-full rounded-md shadow-md"
+  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3975.8332962539685!2d7.050048169341541!3d4.798655998614968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNMKwNDcnNTUuMiJOIDfCsDAzJzA1LjEiRQ!5e0!3m2!1sen!2sro!4v1734696474871!5m2!1sen!2sro"
+  loading="lazy"
+  title="Our Location Map"
+></iframe>
+
   </div>
 </div>
 
