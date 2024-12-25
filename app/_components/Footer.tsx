@@ -53,7 +53,7 @@ function Footer() {
           </li>
           <li>
             <Link href="/provider" className="hover:text-[#C8102E] transition">
-              Providers
+              About
             </Link>
           </li>
           <li>
@@ -67,12 +67,6 @@ function Footer() {
             </Link>
           </li>
           <li>
-            <Link
-              href="/term-conditions"
-              className="hover:text-[#C8102E] transition"
-            >
-              Terms & Conditions
-            </Link>
           </li>
         </ul>
 

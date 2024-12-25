@@ -32,7 +32,7 @@ function TopSection() {
           {/* Image Section */}
           <div className="flex-shrink-0 w-full lg:w-1/2">
             <Image
-              src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734426880/front-view-medical-control-covid19-concept_qji7xu.jpg"
+              src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734688528/lab_5_n3xzpo.png"
               alt="about-img"
               width={800}
               height={400}
