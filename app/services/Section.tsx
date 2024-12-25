@@ -6,25 +6,25 @@ function Section() {
       title: 'Engineering Solutions',
       description:
         'Our cutting-edge automation solutions are designed to optimize industrial operations. By integrating advanced technologies, we help businesses achieve unparalleled efficiency and productivity. From robotics to process control systems, our solutions are tailored to meet the unique demands of each client.',
-      image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734598882/tenweb_media_jaPrDqlM_jztsvb.webp',
+      image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1735128318/PHOTO-2024-12-20-16-05-14_d21g80.jpg',
     },
     {
       title: 'Electromechanical Engineering',
       description:
         'We specialize in providing end-to-end electromechanical engineering services. Our expertise ensures seamless integration of mechanical and electrical systems, delivering solutions that guarantee operational reliability, safety, and enhanced performance for industrial environments.',
-      image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734598882/tenweb_media_nlVHtYte_ra2ofi.webp',
+      image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1735128319/PHOTO-2024-12-20-16-05-19_jrkuwo.jpg',
     },
     {
       title: 'Laboratory Services',
       description:
         'Equipped with the latest technology, our laboratory offers a comprehensive range of testing services. We ensure all products and systems meet strict quality, safety, and compliance standards, giving our clients the confidence they need to innovate and grow.',
-      image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734598882/tenweb_media_QtxKomEP_havjtq.webp',
+      image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734350227/laboratory_cu9e9e.png',
     },
     {
       title: 'Efficient Procurement and Logistics',
       description:
         'Our streamlined procurement and logistics services are designed to deliver projects on time and within budget. From sourcing high-quality materials to coordinating deliveries, we ensure smooth execution at every stage of the supply chain.',
-      image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734598882/tenweb_media_GKqfPJPi_qwusft.webp',
+      image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1733920163/tenweb_media_txQWQhXJ_t9oj7r.webp',
     },
   ];
 
