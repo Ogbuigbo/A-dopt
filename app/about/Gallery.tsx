@@ -8,7 +8,7 @@ function Gallery() {
     { id: 3, title: 'Project 3', image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1735128318/PHOTO-2024-12-20-16-03-27_rvvuti.jpg' },
     { id: 4, title: 'Project 4', image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1735128318/PHOTO-2024-12-20-16-05-12_bisaso.jpg' },
     { id: 5, title: 'Project 5', image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1735128319/PHOTO-2024-12-20-16-05-19_jrkuwo.jpg' },
-    { id: 6, title: 'Project 6', image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1735128319/PHOTO-2024-12-20-16-05-16_wetu61.jpg' },
+    { id: 6, title: 'Project 6', image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734511037/freepik-export-20241218083619fTKO_jkq1pb.png' },
   ];
 
   return (
