@@ -36,7 +36,7 @@ function Hero() {
 
         {/* Buttons */}
         <div className="mt-8 flex gap-6">
-          <Link href="/contact">
+          <Link href="/about">
             <button className="py-3 px-6 rounded-lg bg-white text-black font-medium shadow-lg transition-all duration-300 hover:opacity-70">
               Learn More
             </button>
