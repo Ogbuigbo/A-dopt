@@ -131,7 +131,7 @@ function Header() {
         {/* Contact Us Button */}
         <div className="hidden lg:block">
           <Link
-            href="/get-started"
+            href="/about"
             className="bg-[#C8102E] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#A10D24] transition"
           >
             Get Started
