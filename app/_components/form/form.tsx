@@ -77,7 +77,7 @@ function Form() {
           <div className="flex justify-start mt-4">
             <button
               type="submit"
-              className="bg-[#C8102E] hover:bg-[#397bb6] text-white text-lg px-6 py-3 rounded-full transition-colors"
+              className="bg-[#C8102E] hover:bg-[#A10D24] text-white text-lg px-6 py-3 rounded-full transition-colors"
             >
               Submit your inquiry now
             </button>

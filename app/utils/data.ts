@@ -9,7 +9,7 @@ export const NAV_LINKS = [
       { label: "Engineering Consultation", href: "/services/engineering-consultation" },
       { label: "Enivomental Management", href: "/services/enviromental-management" },
       // { label: "Geotechnical ", href: "/services/testing" },
-      { label: "Laboratory Testing", href: "/services/laboratory-testing" },
+      { label: "Laboratory Services", href: "/services/laboratory-testing" },
       // { label: "Procurement and Logistics ", href: "/services/testing" },
     ],
   },
@@ -29,7 +29,7 @@ export const NAV_LINKS = [
     },
     {
       icons: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734527486/freepik__enhance__71371_upgrxf.png',
-      title: 'State-of-the-Art Laboratory Services',
+      title: 'Laboratory Services',
       description: 'Our laboratory offers reliable testing and analysis, supporting engineering projects with high standards of quality.',
     },
     {

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 function LaboratoryServices() {
@@ -19,9 +20,11 @@ function LaboratoryServices() {
         <p className="text-lg text-gray-600 leading-relaxed lg:w-[600px]">
             Our state-of-the-art laboratory is equipped with cutting-edge technology to deliver precise and reliable testing results. Our expert technicians are committed to maintaining the highest standards of quality and safety, ensuring that your engineering projects are supported with accurate data and analysis.
           </p>
-          <button className="px-6 py-3 text-white bg-[#C8102E] hover:bg-blue-700 rounded-md shadow-md">
+          <Link href='/services/laboratory-testing?section=laboratory'>
+          <button className="px-6 py-3 text-white bg-[#C8102E] hover:bg-[#A10D24] rounded-md shadow-md">
             Learn More
           </button>
+          </Link>
         </div>
         </div>
 

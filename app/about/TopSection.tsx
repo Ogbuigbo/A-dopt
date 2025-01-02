@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 function TopSection() {
   return (
@@ -93,9 +94,11 @@ function TopSection() {
 
     {/* Button */}
     <div className="w-full md:w-auto">
+      <Link href='/services/engineering-consultation'>
       <button className=" md:w-auto px-8 py-3 border border-gray-800 rounded-full bg-white text-gray-800 hover:bg-gray-800 hover:text-white transition duration-300 ease-in-out transform hover:scale-105">
         View
       </button>
+      </Link>
     </div>
   </div>
 
@@ -137,9 +140,11 @@ function TopSection() {
 
     {/* Button */}
     <div className=" md:w-auto ">
+      <Link href='/services/laboratory-testing'>
       <button className="w-full md:w-auto px-8 py-3 border border-gray-800 rounded-full bg-white text-gray-800 hover:bg-gray-800 hover:text-white transition duration-300 ease-in-out transform hover:scale-105">
         Learn More
       </button>
+      </Link>
     </div>
   </div>
 </section>

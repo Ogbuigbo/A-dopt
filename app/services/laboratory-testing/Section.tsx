@@ -38,7 +38,7 @@ function Section() {
             className="w-full md:w-1/2 h-[350px] object-cover rounded-lg shadow-lg"
           />
           {/* Text Section */}
-          <div className="flex-1 text-center md:text-left">
+          <div className="flex-1 text-center md:text-left" id='laboratory'>
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">{service.title}</h2>
             <p className="text-gray-600 leading-relaxed mb-6 text-justify">{service.description}</p>
             {/* <button className="px-6 py-2 border-2 border-[#C8102E] text-[#C8102E] rounded hover:bg-[#C8102E] hover:text-white transition">

@@ -55,9 +55,9 @@ function Section() {
                 <h3 className="text-2xl font-semibold text-gray-800 mb-4">{service.title}</h3>
                 <p className="text-gray-600 mb-6">{service.description}</p>
                 {/* Optionally, add a button to learn more */}
-                <button className="px-6 py-2 text-white bg-[#C8102E] hover:bg-[#A50A26] rounded-md shadow-md transition-all duration-300">
+                {/* <button className="px-6 py-2 text-white bg-[#C8102E] hover:bg-[#A50A26] rounded-md shadow-md transition-all duration-300">
                   Learn More
-                </button>
+                </button> */}
               </div>
             </div>
           ))}

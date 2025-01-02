@@ -41,11 +41,7 @@ function Hero() {
               Get in Touch
             </button>
           </Link>
-          <Link href="/services">
-            <button className="py-3 px-6 rounded-lg border-2 border-white text-white font-medium shadow-lg transition-all duration-300 hover:bg-white hover:text-black">
-              Our Services
-            </button>
-          </Link>
+         
         </div>
       </motion.div>
     </div>

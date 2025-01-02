@@ -2,7 +2,7 @@ import React from 'react'
 
 function Section() {
   return (
-    <div className="bg-white py-10 text-gray-800">
+    <section className="bg-white py-10 text-gray-800">
     <div className="container mx-auto px-4 py-8">
       {/* Top Section: Header and Description */}
       <div className="flex flex-col md:flex-row items-start  justify-between mb-8">
@@ -23,7 +23,7 @@ function Section() {
             stewardship.
           </p>
                {/* Bottom Section: Assessments and Strategies */}
-      <div className="flex flex-col md:flex-row justify-between gap-8">
+      <div className="flex flex-col md:flex-row justify-between gap-8" id='enviroment'>
         {/* Assessments */}
         <div className="md:w-1/2">
           <h2 className="text-xl font-bold text-black mb-2">Assessments</h2>
@@ -47,7 +47,7 @@ function Section() {
 
  
     </div>
-  </div>
+  </section>
   )
 }
 
