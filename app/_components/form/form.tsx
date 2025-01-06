@@ -11,12 +11,17 @@ function Form() {
     toast.dark("Your message has been received. We will get back to you shortly");
     ref.current?.reset();
   };
+  
   const _handleError = () => {
     toast.dark("An error occurred while sending your message. Please try again later.");
   };
 
-  const _handleSubmit = async (formData: FormData) => {
-    const resp = await handleSubmit(formData);
+  const _handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();  // Prevent the default form submission
+
+    const formData = new FormData(ref.current!);  // Get form data from the form element
+    const resp = await handleSubmit(formData);    // Submit form data
+
     if (resp) {
       _handleSuccess();
     } else {
@@ -27,7 +32,7 @@ function Form() {
   return (
     <section className="py-12 ">
       <div className="max-w-3xl mx-auto p-6  border-gray-200">
-        <form action={_handleSubmit} className="space-y-6" ref={ref}>
+        <form onSubmit={_handleSubmit} className="space-y-6" ref={ref}>
           {/* Name Input */}
           <div>
             <label htmlFor="name" className="block text-gray-700 font-medium mb-2">

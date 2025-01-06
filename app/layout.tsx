@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "./_components/Header";
+import "react-toastify/dist/ReactToastify.css"
+import { ToastContainer } from "react-toastify"
 import Footer from "./_components/Footer";
 
 const geistSans = localFont({
@@ -33,6 +34,18 @@ export default function RootLayout({
       >
         {/* <Header /> */}
         {children}
+        <ToastContainer
+						position="top-right"
+						autoClose={5000}
+						hideProgressBar
+						newestOnTop
+						closeOnClick
+						rtl={false}
+						pauseOnFocusLoss
+						draggable
+						pauseOnHover
+						theme="dark"
+					/>
         <Footer />
       </body>
     </html>
