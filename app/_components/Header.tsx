@@ -34,7 +34,7 @@ function Header() {
   }, []);
 
   useEffect(() => {
-    setActiveLink(router); // Update active link on route change
+    setActiveLink(router);
   }, [router]);
 
   useEffect(() => {
@@ -57,7 +57,7 @@ function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full px-6 lg:px-12 flex flex-col justify-between text-black bg-white shadow-md z-50 transition-all duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 w-full px-6 lg:px-12 flex flex-col justify-between bg-[#00205B] text-white shadow-md z-50 transition-all duration-300 ease-in-out ${
         isScrolled ? "py-4" : "py-6"
       }`}
     >
@@ -65,17 +65,19 @@ function Header() {
       <div className="flex justify-between items-center w-full relative">
         {/* Logo */}
         <Link href="/" className="flex">
-          <img
-            src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1733995842/Picture_1_1_aqrddc.png"
-            width={150}
-            height={100}
-            alt="logo"
-            className="object-cover w-[100px]"
-          />
+          <div className="bg-white p-2 rounded-md">
+            <img
+              src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1733995842/Picture_1_1_aqrddc.png"
+              width={150}
+              height={100}
+              alt="logo"
+              className="object-cover w-[100px]"
+            />
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex space-x-8 text-lg font-medium text-[#00205B]">
+        <nav className="hidden lg:flex space-x-8 text-lg font-medium">
           {NAV_LINKS.map((link) => (
             <div
               key={link.key}
@@ -97,7 +99,7 @@ function Header() {
                 </Link>
                 {link.children && (
                   <ChevronDown
-                    className={`w-5 h-5 text-[#00205B] group-hover:text-[#C8102E] transition-transform ${
+                    className={`w-5 h-5 text-white group-hover:text-[#C8102E] transition-transform ${
                       openDropdown === link.key.toString() ? "rotate-180" : ""
                     }`}
                   />
@@ -141,9 +143,9 @@ function Header() {
         {/* Mobile Navigation Toggle */}
         <div className="lg:hidden">
           {!nav ? (
-            <Menu onClick={handleClick} className="w-8 h-8 cursor-pointer" />
+            <Menu onClick={handleClick} className="w-8 h-8 cursor-pointer text-white" />
           ) : (
-            <X onClick={handleClick} className="w-8 h-8 cursor-pointer" />
+            <X onClick={handleClick} className="w-8 h-8 cursor-pointer text-white" />
           )}
         </div>
       </div>
@@ -160,7 +162,6 @@ function Header() {
           {NAV_LINKS.map((link: NavLink) => (
             <li key={link.key} className="w-full text-center">
               <div className="relative">
-                {/* Mobile Navigation Items */}
                 <div
                   className={`flex items-center justify-center gap-1 px-4 py-2 ${
                     activeLink === link.href
@@ -177,8 +178,6 @@ function Header() {
                   >
                     {link.label}
                   </Link>
-
-                  {/* Mobile Dropdown */}
                   {link.children && (
                     <ChevronDown
                       className={`w-5 h-5 transition-transform mt-1 ${
@@ -196,11 +195,7 @@ function Header() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className={`px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-[#C8102E] transition-all ${
-                          activeLink === child.href
-                            ? "text-[#C8102E] border-b-2 border-[#C8102E] font-bold"
-                            : "hover:text-[#C8102E] hover:border-b-2 hover:border-[#C8102E]"
-                        }`}
+                        className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-[#C8102E] transition-all"
                         onClick={() => setNav(false)}
                       >
                         {child.label}

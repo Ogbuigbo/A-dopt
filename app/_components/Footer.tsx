@@ -30,9 +30,9 @@ function Footer() {
 
   return (
     <footer className="bg-[#00205B] text-white">
-      <div className="mx-auto xl:px-20 px-6 py-16 sm:px-8 lg:px-12">
+      <div className="mx-auto xl:px-20 px-6 py-8 sm:px-8 lg:px-12">
         {/* Logo Section */}
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center mb-6">
           <div className="p-2 bg-white rounded-md shadow-md">
             <Image
               src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1733995842/Picture_1_1_aqrddc.png"
@@ -45,7 +45,7 @@ function Footer() {
         </div>
 
         {/* Navigation Links */}
-        <ul className="flex flex-wrap justify-center gap-8 text-lg font-medium">
+        <ul className="flex flex-wrap justify-center gap-6 text-sm font-medium">
           <li>
             <Link href="/services" className="hover:text-[#C8102E] transition">
               Services
@@ -66,25 +66,23 @@ function Footer() {
               Privacy Policy
             </Link>
           </li>
-          <li>
-          </li>
         </ul>
 
         {/* Social Media & Copyright */}
-        <div className="mt-10 flex flex-col md:flex-row justify-between items-center text-sm border-t border-gray-500 pt-6">
+        <div className="mt-6 flex flex-col md:flex-row justify-between items-center text-sm border-t border-gray-500 pt-4">
           <p className="text-center md:text-left">
             © 2024 ADIS. All rights reserved.
           </p>
 
           {/* Social Media Links */}
-          <div className="flex gap-6 mt-6 md:mt-0">
+          <div className="flex gap-4 mt-4 md:mt-0">
             <Link
               href="https://www.linkedin.com"
               target="_blank"
               aria-label="LinkedIn"
               className="hover:text-[#C8102E] transition"
             >
-              <Linked className="w-6 h-6" />
+              <Linked className="w-5 h-5" />
             </Link>
             <Link
               href="https://www.facebook.com"
@@ -92,7 +90,7 @@ function Footer() {
               aria-label="Facebook"
               className="hover:text-[#C8102E] transition"
             >
-              <Facebook className="w-6 h-6" />
+              <Facebook className="w-5 h-5" />
             </Link>
             <Link
               href="https://www.twitter.com"
@@ -100,7 +98,7 @@ function Footer() {
               aria-label="Twitter"
               className="hover:text-[#C8102E] transition"
             >
-              <Twitter className="w-6 h-6" />
+              <Twitter className="w-5 h-5" />
             </Link>
           </div>
         </div>
@@ -110,10 +108,10 @@ function Footer() {
       {showButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-[#C8102E] text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-[#A10D24] transition-all duration-300 shadow-lg"
+          className="fixed bottom-6 right-6 bg-[#C8102E] text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-[#A10D24] transition-all duration-300 shadow-lg"
           aria-label="Scroll to Top"
         >
-          <CornerRightUp size={24} />
+          <CornerRightUp size={20} />
         </button>
       )}
     </footer>
