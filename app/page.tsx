@@ -18,11 +18,11 @@ export default function Home() {
       <Hero/>
       <About />
       <Services />
-      <Logo/>
+    
       <Leading />
       <ProcurementSolutions />
       <LaboratoryServices />
-     
+      <Logo/>
    
     </div>
   );
