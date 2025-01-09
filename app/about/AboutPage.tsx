@@ -32,12 +32,12 @@ const AboutPage = () => {
       </section>
 
       {/* Core Values Section */}
-      <section className="mb-16 flex flex-col md:flex-row items-center">
-        <div className="w-full md:w-1/3 mb-8 md:mb-0 md:mr-6">
+      <section className="mb-16 flex flex-col md:flex-row mt-16 items-center">
+        <div className="w-full md:w-1/3 mt-16 mb-8 md:mb-0 md:mr-6">
           <Image
-            src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1736450928/OR7TUP0_juvvqv.jpg" // Replace with the appropriate image path
+            src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1736454226/e132c223-ebaf-4b3a-8fdb-19c1e834ffdb_wzukzr.jpg" // Replace with the appropriate image path
             alt="Core Values"
-            width={300}
+            width={600}
             height={400}
             className="rounded-lg shadow-lg"
           />
