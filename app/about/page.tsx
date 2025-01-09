@@ -3,14 +3,17 @@ import Header from '../_components/Header'
 import TopSection from './TopSection'
 import Logo from '../_components/Logo'
 import Gallery from './Gallery'
+import AboutPage from './AboutPage'
 
 function page() {
   return (
     <div>
       <Header/>
+      <AboutPage/>
       <TopSection/>
+    
       <Logo />
-      <Gallery />
+      {/* <Gallery /> */}
     </div>
   )
 }
