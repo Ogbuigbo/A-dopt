@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
+    "@vercel/edge-config": "^1.4.0",
     "framer-motion": "^11.14.0",
     "install": "^0.13.0",
     "lucide-react": "^0.451.0",
