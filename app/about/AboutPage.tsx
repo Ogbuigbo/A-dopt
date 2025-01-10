@@ -2,11 +2,11 @@ import Image from 'next/image';
 
 const AboutPage = () => {
   return (
-    <div className="container mx-auto px-6 lg:px-[120px] py-12">
+    <div className="container mx-auto px-6 lg:px-[120px] mt-[170px] py-12">
       {/* Header Section */}
       <header className="text-center mb-16">
         <h1 className="text-4xl font-bold text-gray-800">About Us</h1>
-        <p className="text-lg text-gray-600 mt-4">Our Mission, Vision, and Core Values</p>
+        {/* <p className="text-lg text-gray-600 mt-4">Our Mission, Vision, and Core Values</p> */}
       </header>
 
       {/* Mission and Vision Section */}
