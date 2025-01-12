@@ -180,10 +180,13 @@ function Header() {
                   </Link>
                   {link.children && (
                     <ChevronDown
-                      className={`w-5 h-5 transition-transform mt-1 ${
+                      className={`w-5 h-5 mt-1 text-black bg-black p-1 rounded-full text-white ${
                         mobileDropdown === link.key.toString() ? "rotate-180" : ""
                       }`}
-                      onClick={() => handleMobileDropdown(link.key.toString())}
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevent parent click event
+                        handleMobileDropdown(link.key.toString());
+                      }}
                     />
                   )}
                 </div>
@@ -213,3 +216,4 @@ function Header() {
 }
 
 export default Header;
+
