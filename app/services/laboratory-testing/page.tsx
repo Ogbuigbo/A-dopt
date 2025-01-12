@@ -4,6 +4,7 @@ import Hero from './Hero'
 import Section from './Section'
 import LaboratoryServices from '@/app/_components/LaboratoryServices'
 import AboutScrollHandler from '@/app/_components/aboutUsScrollHandler'
+import SectionOne from './SectionOne'
 
 function page({ searchParams }: { searchParams: { [key: string]: string } }) {
   return (
@@ -12,6 +13,7 @@ function page({ searchParams }: { searchParams: { [key: string]: string } }) {
       <Header/>
       <Hero />
       <LaboratoryServices />
+      <SectionOne/>
       <Section />
     </div>
   )

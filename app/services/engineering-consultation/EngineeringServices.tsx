@@ -25,7 +25,7 @@ function EngineeringServices() {
           {/* Image Section */}
           <div className="relative">
             <Image
-              src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1735128320/PHOTO-2024-12-20-16-05-18_yzhuct.jpg" 
+              src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1735128318/PHOTO-2024-12-20-16-05-14_d21g80.jpg" 
               alt="Engineering solutions"
               width={800}
               height={450}

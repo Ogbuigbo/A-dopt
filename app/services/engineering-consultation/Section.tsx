@@ -6,27 +6,27 @@ function Section() {
       title: 'Custom Engineering Design',
       description:
         'We specialize in delivering custom engineering designs that meet the specific needs of your projects. From concept to final design, our solutions are tailored for performance, efficiency, and sustainability.',
-      image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1735128319/PHOTO-2024-12-20-16-05-19_jrkuwo.jpg',
+      image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1736695381/african-american-developer-setting-up-gears-model-manufacturing-software-developing-engine-product-technical-industry-innovation-creating-turbine-design-with-industrial-cad-science_wnsztn.jpg',
       icon: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1679371533/icons/design_icon.svg', // Replace with your icon path
     },
     {
       title: 'Process Optimization',
       description:
         'Maximize efficiency and reduce operational costs with our process optimization solutions. We analyze existing workflows and identify areas for improvement, implementing strategies that increase productivity and minimize waste.',
-      image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1735128318/PHOTO-2024-12-20-16-05-14_d21g80.jpg',
+      image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1736695190/optimization_hrcdmx.png',
       icon: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1679371533/icons/optimization_icon.svg', // Replace with your icon path
     },
     {
       title: 'Regulatory Compliance Engineering',
       description:
         'Our team ensures that your engineering projects meet all necessary regulatory standards. Whether it’s environmental compliance or safety certifications, we provide the expertise needed to navigate complex regulations.',
-      image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734509360/project1_qbhjoz.png',
+      image: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1736454226/e132c223-ebaf-4b3a-8fdb-19c1e834ffdb_wzukzr.jpg',
       icon: 'https://res.cloudinary.com/dpkn1ppzj/image/upload/v1679371533/icons/compliance_icon.svg', // Replace with your icon path
     },
   ];
 
   return (
-    <section className="py-24 md:px-10 px-6 xl:px-[150px] bg-[#f8f9fa]">
+    <section className="py-[35px] md:px-10 px-6 xl:px-[150px] bg-[#f8f9fa]">
       <div className="mx-auto max-w-screen-xl space-y-16">
         {/* Title Section */}
         <div className="text-center">
