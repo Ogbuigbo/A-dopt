@@ -46,14 +46,14 @@ function Footer() {
 
         {/* Navigation Links */}
         <ul className="flex flex-wrap justify-center gap-6 text-sm font-medium">
-          <li>
-            <Link href="/services" className="hover:text-[#C8102E] transition">
-              Services
+        <li>
+            <Link href="/provider" className="hover:text-[#C8102E] transition">
+              About
             </Link>
           </li>
           <li>
-            <Link href="/provider" className="hover:text-[#C8102E] transition">
-              About
+            <Link href="/services" className="hover:text-[#C8102E] transition">
+              Services
             </Link>
           </li>
           <li>
@@ -62,8 +62,8 @@ function Footer() {
             </Link>
           </li>
           <li>
-            <Link href="/privacy" className="hover:text-[#C8102E] transition">
-              Privacy Policy
+            <Link href="/policy" className="hover:text-[#C8102E] transition">
+              Policy
             </Link>
           </li>
         </ul>
