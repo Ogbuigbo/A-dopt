@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 
 function About() {
   return (
-    <motion.section
-      className="py-24 md:px-10 px-6 xl:px-[150px] lg:px-[50px]"
+    <motion.section 
+      className="py-24 md:px-10 px-6 xl:px-[150px] mt-[200px] lg:px-[50px]"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}

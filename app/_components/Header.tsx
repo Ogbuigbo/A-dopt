@@ -57,15 +57,15 @@ function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full px-6 lg:px-12 flex flex-col justify-between bg-[#00205B] text-white shadow-md z-50 transition-all duration-300 ease-in-out ${
-        isScrolled ? "py-4" : "py-6"
+      className={`fixed top-0 left-0 w-full px-6 lg:px-12 flex flex-col justify-between shadow-md z-50 transition-all duration-300 ease-in-out ${
+        isScrolled ? "bg-white text-black py-4" : "bg-transparent text-white py-6"
       }`}
     >
       {/* Logo and Navigation */}
       <div className="flex justify-between items-center w-full relative">
         {/* Logo */}
         <Link href="/" className="flex">
-          <div className="bg-white p-2 rounded-md">
+          <div className={`p-2 rounded-md ${isScrolled ? "bg-white" : "bg-white"}`}>
             <img
               src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1733995842/Picture_1_1_aqrddc.png"
               width={150}
@@ -99,7 +99,9 @@ function Header() {
                 </Link>
                 {link.children && (
                   <ChevronDown
-                    className={`w-5 h-5 text-white group-hover:text-[#C8102E] transition-transform ${
+                    className={`w-5 h-5 ${
+                      isScrolled ? "text-black" : "text-white"
+                    } group-hover:text-[#C8102E] transition-transform ${
                       openDropdown === link.key.toString() ? "rotate-180" : ""
                     }`}
                   />
@@ -134,7 +136,9 @@ function Header() {
         <div className="hidden lg:block">
           <Link
             href="/contact"
-            className="bg-[#C8102E] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#A10D24] transition"
+            className={`px-6 py-3 rounded-md font-semibold transition ${
+              isScrolled ? "bg-[#C8102E] text-white" : "bg-[#C8102E] text-white"
+            } hover:bg-[#A10D24]`}
           >
             Get Started
           </Link>
@@ -143,77 +147,14 @@ function Header() {
         {/* Mobile Navigation Toggle */}
         <div className="lg:hidden">
           {!nav ? (
-            <Menu onClick={handleClick} className="w-8 h-8 cursor-pointer text-white" />
+            <Menu onClick={handleClick} className="w-8 h-8 cursor-pointer" />
           ) : (
-            <X onClick={handleClick} className="w-8 h-8 cursor-pointer text-white" />
+            <X onClick={handleClick} className="w-8 h-8 cursor-pointer" />
           )}
         </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      <div
-        className={`absolute top-[110px] left-0 w-full bg-white shadow-md transform z-50 ${
-          !nav
-            ? "opacity-0 pointer-events-none translate-y-full"
-            : "opacity-100 pointer-events-auto translate-y-0"
-        } transition-all duration-500 ease-in-out`}
-      >
-        <ul className="py-3 flex flex-col items-center gap-2">
-          {NAV_LINKS.map((link: NavLink) => (
-            <li key={link.key} className="w-full text-center">
-              <div className="relative">
-                <div
-                  className={`flex items-center justify-center gap-1 px-4 py-2 ${
-                    activeLink === link.href
-                      ? "text-[#C8102E] border-b-2 border-[#C8102E] font-bold"
-                      : "hover:text-[#C8102E] hover:border-b-2 hover:border-[#C8102E]"
-                  } transition-all`}
-                >
-                  <Link
-                    href={link.href}
-                    className={`block py-2 ${
-                      activeLink === link.href ? "text-[#C8102E]" : "text-black"
-                    }`}
-                    onClick={() => setNav(false)}
-                  >
-                    {link.label}
-                  </Link>
-                  {link.children && (
-                    <ChevronDown
-                      className={`w-5 h-5 mt-1 text-black bg-black p-1 rounded-full text-white ${
-                        mobileDropdown === link.key.toString() ? "rotate-180" : ""
-                      }`}
-                      onClick={(e) => {
-                        e.stopPropagation(); // Prevent parent click event
-                        handleMobileDropdown(link.key.toString());
-                      }}
-                    />
-                  )}
-                </div>
-
-                {/* Mobile Submenu */}
-                {link.children && mobileDropdown === link.key.toString() && (
-                  <div className="flex flex-col bg-gray-100">
-                    {link.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-[#C8102E] transition-all"
-                        onClick={() => setNav(false)}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
       </div>
     </header>
   );
 }
 
 export default Header;
-

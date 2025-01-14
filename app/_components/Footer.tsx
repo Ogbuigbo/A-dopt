@@ -1,121 +1,145 @@
-"use client";
+"use client"
 
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { CornerRightUp } from "lucide-react";
-import Linked from "../assets/linked";
-import Facebook from "../assets/facebook";
-import Twitter from "../assets/twitter";
+import React, { useState, useEffect, useRef } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import Telephone from "../assets/Telephone"
+import Email from "../assets/Email"
+import Location from "../assets/Location"
+import { CornerRightUp } from "lucide-react"
 
 function Footer() {
-  const [showButton, setShowButton] = useState(false);
+	const [showButton, setShowButton] = useState(false)
+	const footerRef = useRef(null)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
-      const triggerHeight = window.innerHeight * 0.5;
+	useEffect(() => {
+		const handleScroll = () => {
+			const scrollHeight = document.documentElement.scrollHeight
+			const scrollTop =
+				window.pageYOffset || document.documentElement.scrollTop
+			const windowHeight = window.innerHeight
+			// Calculate the height at which you want the button to appear
+			const triggerHeight = scrollHeight * 0.05 // Adjust the percentage as needed
 
-      setShowButton(scrollTop > triggerHeight);
-    };
+			setShowButton(scrollTop > triggerHeight)
+		}
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+		window.addEventListener("scroll", handleScroll)
+		return () => {
+			window.removeEventListener("scroll", handleScroll)
+		}
+	}, [])
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		})
+	}
 
-  return (
-    <footer className="bg-[#00205B] text-white">
-      <div className="mx-auto xl:px-20 px-6 py-8 sm:px-8 lg:px-12">
-        {/* Logo Section */}
-        <div className="flex justify-center mb-6">
-          <div className="p-2 bg-white rounded-md shadow-md">
-            <Image
-              src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1733995842/Picture_1_1_aqrddc.png"
-              width={140}
-              height={50}
-              alt="ADIS Logo"
-              className="hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-        </div>
+	return (
+		<footer className="bg-[#00205B] pb-[10px]">
+			<div
+				className="lg:px-[62px] xl:px-[124px] space-y-8 px-4 py-6 sm:px-6 xl:space-y-16 xl:p-12"
+				ref={footerRef}
+			>
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[50px] md:text-justify text-center">
+					<div>
+						<h1 className="text-[#fff] xl:text-[24px] text-[16px]  flex gap-2 items-center text-center md:justify-start justify-center">
+							<span>ADIS</span>
+							<span>LIMITED</span>
+							<span></span>{" "}
+						</h1>
+						<p className="mt-2 text-justify text-white text-[12px] xl:text-[16px] xl:min-w-[471px] font-medium lg:min-w-[390px] w-full">
+            At ADIS, we are dedicated to providing top-notch services with a commitment to quality, precision, and innovation. Explore our offerings and let us help you achieve your goals.
+</p>
 
-        {/* Navigation Links */}
-        <ul className="flex flex-wrap justify-center gap-6 text-sm font-medium">
-        <li>
-            <Link href="/provider" className="hover:text-[#C8102E] transition">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link href="/services" className="hover:text-[#C8102E] transition">
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="hover:text-[#C8102E] transition">
-              Contact Us
-            </Link>
-          </li>
-          <li>
-            <Link href="/policy" className="hover:text-[#C8102E] transition">
-              Policy
-            </Link>
-          </li>
-        </ul>
+					</div>
 
-        {/* Social Media & Copyright */}
-        <div className="mt-6 flex flex-col md:flex-row justify-between items-center text-sm border-t border-gray-500 pt-4">
-          <p className="text-center md:text-left">
-            © 2024 ADIS. All rights reserved.
-          </p>
+					<div className="md:ml-[150px]">
+						<p className="font-bold text-white text-[16px] leading-[33px] xl:text-[24px]">
+							Useful Links
+						</p>
 
-          {/* Social Media Links */}
-          <div className="flex gap-4 mt-4 md:mt-0">
-            <Link
-              href="https://www.linkedin.com"
-              target="_blank"
-              aria-label="LinkedIn"
-              className="hover:text-[#C8102E] transition"
-            >
-              <Linked className="w-5 h-5" />
-            </Link>
-            <Link
-              href="https://www.facebook.com"
-              target="_blank"
-              aria-label="Facebook"
-              className="hover:text-[#C8102E] transition"
-            >
-              <Facebook className="w-5 h-5" />
-            </Link>
-            <Link
-              href="https://www.twitter.com"
-              target="_blank"
-              aria-label="Twitter"
-              className="hover:text-[#C8102E] transition"
-            >
-              <Twitter className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </div>
+						<ul className="mt-2 space-y-4 text-sm text-white flex flex-col gap-2 text-[12px] font-medium xl:text-[20px]">
+							<Link
+								href="/"
+								className=" transition hover:opacity-75"
+							>
+								Home
+							</Link>
 
-      {/* Scroll-to-Top Button */}
+							<Link
+								href="/about"
+								className="transition hover:opacity-75"
+							>
+								About Us
+							</Link>
+
+							<Link
+								href="/services"
+								className="transition hover:opacity-75"
+							>
+								Services
+							</Link>
+
+							<Link
+								href="/contact"
+								className="t transition hover:opacity-75"
+							>
+								Contact Us
+							</Link>
+						</ul>
+					</div>
+
+					<div className="lg:ml-[50px] text-center">
+						<div className="flex md:gap-10 md:items-center justify-start flex-col md:flex-row">
+							<p className="font-medium text-[#fff] text-[24px] leading-[33px]">
+								Contact Us
+							</p>
+						</div>
+
+						<ul className="mt-6 space-y-4 text-sm md:items-start flex text-left justify-center  text-white w-full items-center">
+							<div className="flex flex-col md:items-start  gap-4 lg:gap-8 md:ml-[10px] ml-[45px] xl:text-[16px] text-[12px]  lg:ml-0">
+								<p className="transition hover:opacity-75 flex items-center gap-4">
+									<Location />
+									<span>
+                  No 2, OKURU ROAD OFF JDP ROUND ABOUT{" "}
+										<span className="block">
+                    PETER ODILI ROAD, TRANS AMADI,<br /> PORT HARCOURT.
+                    Rivers State.
+										</span>
+									</span>
+								</p>
+
+								<p className="transition hover:opacity-75 flex items-center gap-4">
+									<Telephone />
+									<span>+234 8037 464 341, <br /> +234 0703 204 2223</span>
+								</p>
+
+								<p className="transition hover:opacity-75 flex items-center gap-4">
+									<Email />
+									<span>Info@adislimited.com, adoptinterservenigltd@yahoo.ccom</span>
+								</p>
+							</div>
+						</ul>
+ 
+
+            {/* Scroll-to-Top Button */}
       {showButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-[#C8102E] text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-[#A10D24] transition-all duration-300 shadow-lg"
+          className="fixed xl:bottom-[270px] lg:bottom-[270px] md:bottom-[80px] bottom-[50px] xl:right-[100px] lg:right-[50px] md:right-[20px] bg-[#C8102E] text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-[#A10D24] transition-all duration-300 shadow-lg"
           aria-label="Scroll to Top"
         >
-          <CornerRightUp size={20} />
+          <CornerRightUp className="text-white" />
         </button>
       )}
-    </footer>
-  );
+					</div>
+				</div>
+			</div>
+		</footer>
+	)
 }
 
-export default Footer;
+export default Footer
