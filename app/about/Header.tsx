@@ -58,7 +58,7 @@ function Header() {
   return (
     <header
       className={`fixed top-0 left-0 w-full px-6 lg:px-12 flex flex-col justify-between z-50 transition-all duration-300 ease-in-out ${
-        isScrolled ? "bg-white text-black py-4" : "bg-transparent text-white py-6"
+        isScrolled ? "bg-white text-black py-4" : "bg-transparent text-black py-6"
       }`}
     >
       {/* Logo and Navigation */}
@@ -100,7 +100,7 @@ function Header() {
                 {link.children && (
                   <ChevronDown
                     className={`w-5 h-5 ${
-                      isScrolled ? "text-black" : "text-white"
+                      isScrolled ? "text-black" : "text-black"
                     } group-hover:text-[#C8102E] transition-transform ${
                       openDropdown === link.key.toString() ? "rotate-180" : ""
                     }`}
