@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../_components/Header'
 import Section from './Section'
+import Header from './Header'
 
 function page() {
   return (
