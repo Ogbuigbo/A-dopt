@@ -2,13 +2,10 @@ import Image from "next/image";
 
 const AboutPage = () => {
   return (
-    <div className="container mx-auto px-6 lg:px-[120px] mt-[120px] py-12">
+    <div className="container mx-auto px-6 lg:px-[120px] lg:mt-[20px] py-12">
       {/* Header Section */}
-      <header className="text-center mb-16">
-        <h1 className="text-5xl font-bold text-gray-800">About Us</h1>
-      </header>
-
-      <section className="flex flex-col lg:flex-row items-center gap-10">
+      
+      <section className="flex flex-col lg:flex-row items-start gap-10">
         {/* Image Section */}
         <div className="lg:w-1/2 flex justify-center">
           <Image
@@ -22,75 +19,50 @@ const AboutPage = () => {
 
         {/* Text Content Section */}
         <div className="lg:w-1/2">
-          <h4 className="text-sm text-[#00205B] uppercase mb-2">
-            Welcome to ADISLimited
-          </h4>
-          <h1 className="text-4xl font-extrabold text-gray-900 leading-tight">
-            About A-Dopt International Services
-          </h1>
-          <p className="text-lg text-gray-600 leading-relaxed mt-4">
-            A-Dopt International Services Limited has been a leader in
-            engineering consultancy since 2009, committed to delivering
-            innovative solutions while prioritizing sustainability and
-            excellence in every project.
-          </p>
+  <h4 className="text-sm text-[#00205B] uppercase mb-2">
+    Welcome to ADISLimited
+  </h4>
+  <h1 className="text-4xl font-extrabold text-gray-900 leading-tight">
+    About A-Dopt International Services
+  </h1>
+  <p className="text-lg text-gray-600 leading-relaxed mt-4">
+    A-Dopt International Services Limited has been a leader in engineering consultancy since 2009, committed to delivering innovative solutions while prioritizing sustainability and excellence in every project.
+  </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-            {/* Mission Section */}
-            <div
-              
-            >
-              <h2 className="text-3xl font-bold text-gray-900">Mission</h2>
-              <p className="text-gray-600 mt-4">
-                To ensure efficient and prompt service delivery in concurrence
-                with clients’ strategic objectives and policies while ensuring
-                that optimal standards are maintained.
-              </p>
-            </div>
+  {/* Just about the company */}
+  <div className="mt-8">
+    <p className="text-gray-600 mt-4">
+      A-Dopt International Services Limited is renowned for its exceptional engineering consultancy services, offering cutting-edge solutions that drive sustainable growth. We focus on providing high-quality and timely services that align with the strategic objectives of our clients. Since our inception in 2009, we have continuously set new industry standards and have expanded our reach to global markets.
+    </p>
+  </div>
+</div>
+  </section>
 
-            {/* Vision Section */}
-            <div
-            >
-              <h2 className="text-3xl font-bold text-gray-900">Vision</h2>
-              <p className="text-gray-600 mt-4">
-                To be the most preferred indigenous EEPC company providing
-                valuable solutions to our clients in Nigeria and around the
-                globe, and to become the foremost Engineering and Environmental
-                Consulting Firm in Nigeria and West Africa.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Mission and Vision Section
-      <section className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-10 mt-[100px] items-start">
-        <div>
-          <h2 className="text-3xl font-semibold text-gray-800">
-            Our Mission & Vision
-          </h2>
-          <p className="mt-6 text-lg text-gray-700 leading-relaxed">
-            <strong>Mission:</strong> To ensure efficient and prompt service delivery
-            in concurrence with clients' strategic objectives and policies while
-            ensuring that optimal standards are maintained.
-          </p>
-          <p className="mt-6 text-lg text-gray-700 leading-relaxed">
-            <strong>Vision:</strong> To be the most preferred indigenous EEPC company
-            providing valuable solutions to our clients in Nigeria and around the
-            globe, and to become the foremost Engineering and Environmental
-            Consulting Firm in Nigeria and West Africa.
-          </p>
-        </div>
-        <div className="flex justify-center">
-          <Image
-            src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1736450825/5857034_av4vmi.jpg"
-            alt="Mission and Vision"
-            width={500}
-            height={300}
-            className="rounded-lg shadow-lg h-[400px] w-[400px]"
-          />
-        </div>
-      </section> */}
+    {/* Mission and Vision Cards Section */}
+    <div className="mt-16 flex justify-center items-center">
+        <h1 className="text-4xl font-bold mb-8">Mission and Vision</h1>
+      </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+    {/* Mission Card */}
+    <div className="bg-white shadow-lg rounded-lg p-6">
+      <h3 className="text-2xl font-bold text-gray-900">Mission</h3>
+      <p className="text-gray-600 mt-4">
+        To ensure efficient and prompt service delivery in concurrence with clients’ strategic objectives and policies while ensuring that optimal standards are maintained.
+      </p>
+    </div>
+
+    {/* Vision Card */}
+    <div className="bg-white shadow-lg rounded-lg p-6">
+      <h3 className="text-2xl font-bold text-gray-900">Vision</h3>
+      <p className="text-gray-600 mt-4">
+        To be the most preferred indigenous EEPC company providing valuable solutions to our clients in Nigeria and around the globe, and to become the foremost Engineering and Environmental Consulting Firm in Nigeria and West Africa.
+      </p>
+    </div>
+  </div>
+
+
+      
 
       {/* Core Values Section */}
       <section className="mb-16 mt-[100px]">

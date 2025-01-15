@@ -10,9 +10,9 @@ const Services = () => {
                     Our  Services
                 </h1>
                 <hr className='w-[100px] bg-slate-500 p-[1px] mt-2 mb-6' />
-                <p className='lg:w-[600px] text-gray-700'>
+                {/* <p className='lg:w-[600px] text-gray-700'>
                 Delectus dolor doloribus anim, voluptas nisl, ea reiciendis ratione volutpat! Placeat laboriosam quisquam aspernatur ac pariatur. 
-                </p>
+                </p> */}
             </div>
 
 

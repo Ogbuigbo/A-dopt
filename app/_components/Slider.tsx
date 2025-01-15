@@ -1,6 +1,5 @@
 "use client";
 
-
 import Image from 'next/image';
 import React from 'react';
 import Slider from 'react-slick';
@@ -46,8 +45,8 @@ function ImageScroll() {
     <section className="relative mb-16"> {/* Added margin-bottom to create space */}
       <Slider {...settings} className="flex items-center justify-center mt-8">
         {ITEMS.map((item, index) => (
-          <div key={index} className="flex flex-col items-center justify-center p-2 2xl:p-8">
-            <div className="shadow-md transition-transform transform hover:scale-105 hover:shadow-xl rounded-lg overflow-hidden">
+          <div key={index} className={`flex flex-col items-center justify-center p-2 2xl:p-8 `}>
+            <div className={`shadow-md transition-transform transform hover:scale-105 hover:shadow-xl rounded-lg overflow-hidden ${index >= ITEMS.length - 2 ? 'pb-8' : ''} `}>
               <Image 
                 src={item.icons} 
                 width={400} 
@@ -65,7 +64,6 @@ function ImageScroll() {
       </Slider>
 
       {/* Custom CSS for dots */}
-  
     </section>
   );
 }
