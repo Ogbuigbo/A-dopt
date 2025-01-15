@@ -9,6 +9,8 @@ import { ITEMS } from '../utils/data';
 
 function ImageScroll() {
   const settings = {
+    autoplay: true,
+    autoplaySpeed: 3000, 
     dots: true,  // Enable dots for pagination
     infinite: true,
     speed: 800,  // Smoother transition
