@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 function Section() {
   return (
-    <section className="bg-[#f2f4f6] py-6 px-6 md:px-10 xl:px-[150px] mt-[100px] lg:px-10">
+    <section className="bg-[#f2f4f6] py-6 px-6 md:px-10 xl:px-[150px]  lg:px-10">
 
 
         

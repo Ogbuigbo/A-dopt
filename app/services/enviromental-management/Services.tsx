@@ -1,108 +1,98 @@
 import React from "react";
-import Image from "next/image";
-import { Globe, Database, ShieldCheck, Trash2, SprayCan, Package, Wind, Droplet, MapPin } from "lucide-react";
+import {
+  Globe,
+  Database,
+  ShieldCheck,
+  Trash2,
+  SprayCan,
+  Package,
+  Wind,
+  Droplet,
+  MapPin,
+} from "lucide-react";
 
 const EnvironmentalServices = () => {
+  const services = [
+    {
+      title: "Environmental Baseline Studies",
+      icon: <Globe className="text-yellow-400" size={32} />,
+    },
+    {
+      title: "Environmental Impact Assessment",
+      icon: <ShieldCheck className="text-green-400" size={32} />,
+    },
+    {
+      title: "Post Impact Assessment",
+      icon: <ShieldCheck className="text-blue-400" size={32} />,
+    },
+    {
+      title: "Environmental Database Management",
+      icon: <Database className="text-purple-400" size={32} />,
+    },
+    {
+      title: "Pollution Control and Oil Spill Cleanup",
+      icon: <Trash2 className="text-red-400" size={32} />,
+    },
+    {
+      title: "Environmental (Bio) Remediation",
+      icon: <Droplet className="text-blue-500" size={32} />,
+    },
+    {
+      title: "Waste Management",
+      icon: <Trash2 className="text-orange-500" size={32} />,
+    },
+    {
+      title: "Fumigation and Pest Control",
+      icon: <SprayCan className="text-yellow-600" size={32} />,
+    },
+    {
+      title: "Industrial Cleaning Services (Tanks, Vessels)",
+      icon: <Package className="text-pink-500" size={32} />,
+    },
+    {
+      title: "Air Quality Studies",
+      icon: <Wind className="text-green-500" size={32} />,
+    },
+    {
+      title: "Water Borehole Drilling and Reticulation",
+      icon: <Droplet className="text-blue-600" size={32} />,
+    },
+    {
+      title: "Dredging and Reclamation",
+      icon: <Globe className="text-teal-400" size={32} />,
+    },
+    {
+      title: "Geotechnical Services",
+      icon: <MapPin className="text-gray-500" size={32} />,
+    },
+    {
+      title: "Location Preparation",
+      icon: <MapPin className="text-purple-500" size={32} />,
+    },
+  ];
+
   return (
-    <div className="bg-white py-8 px-6 md:py-16 md:px-20 lg:px-[120px]">
+    <div className="max-w-6xl mx-auto px-6 md:py-12">
       {/* Header Section */}
-      <div className="text-center mb-8 md:mb-12">
-        <h1 className="text-2xl md:text-4xl font-extrabold text-gray-800 uppercase mb-4 md:mb-6 tracking-wide">
-          Environmental Management <br /> & Consultancy Services
-        </h1>
-      </div>
+      <h1 className="text-3xl font-bold text-center text-gray-800 mb-8 uppercase tracking-wide">
+        Environmental Management & Consultancy Services
+      </h1>
 
-      {/* Content Section */}
-      <div className="flex flex-col md:flex-row gap-8 md:gap-12">
-        {/* Left Column: Images */}
-        <div className="flex flex-col space-y-6 flex-1">
-          <Image
-            src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734512732/freepik-export-20241218090432gocp_lep3fo.png"
-            alt="Baseline Studies"
-            width={500}
-            height={300}
-            className="rounded-lg shadow-lg"
-          />
-          <Image
-            src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1735128320/PHOTO-2024-12-20-16-05-18_yzhuct.jpg"
-            alt="Excavation"
-            width={500}
-            height={300}
-            className="rounded-lg shadow-lg"
-          />
-          <Image
-            src="https://res.cloudinary.com/dpkn1ppzj/image/upload/v1736696912/spill_tcvb7p.png"
-            alt="Oil Spill Cleanup"
-            width={500}
-            height={200}
-            className="rounded-lg shadow-lg h-[400px] object-cover"
-          />
-        </div>
-
-        {/* Right Column: Services List */}
-        <div className="flex-1">
-          <div className="bg-blue-800 text-white rounded-lg shadow-lg p-6">
-            <h2 className="text-xl md:text-2xl font-bold mb-4">Our Services</h2>
-            <ul className="space-y-4">
-              <li className="flex items-center gap-3">
-                <Globe className="w-6 h-6 text-yellow-400" />
-                <span>Environmental Baseline Studies</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <ShieldCheck className="w-6 h-6 text-green-400" />
-                <span>Environmental Impact Assessment</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <ShieldCheck className="w-6 h-6 text-blue-400" />
-                <span>Post Impact Assessment</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Database className="w-6 h-6 text-purple-400" />
-                <span>Environmental Database Management</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Trash2 className="w-6 h-6 text-red-400" />
-                <span>Pollution Control and Oil Spill Cleanup</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Droplet className="w-6 h-6 text-blue-500" />
-                <span>Environmental (Bio) Remediation</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Trash2 className="w-6 h-6 text-orange-500" />
-                <span>Waste Management</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <SprayCan className="w-6 h-6 text-yellow-600" />
-                <span>Fumigation and Pest Control</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Package className="w-6 h-6 text-pink-500" />
-                <span>Industrial Cleaning Services (Tanks, Vessels)</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Wind className="w-6 h-6 text-green-500" />
-                <span>Air Quality Studies</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Droplet className="w-6 h-6 text-blue-600" />
-                <span>Water Borehole Drilling and Reticulation</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Globe className="w-6 h-6 text-teal-400" />
-                <span>Dredging and Reclamation</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <MapPin className="w-6 h-6 text-gray-500" />
-                <span>Geotechnical Services</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <MapPin className="w-6 h-6 text-purple-500" />
-                <span>Location Preparation</span>
-              </li>
-            </ul>
+      {/* Services Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition"
+          >
+            {/* Icon */}
+            <div className="mb-4">{service.icon}</div>
+            {/* Title */}
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              {service.title}
+            </h3>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
