@@ -14,6 +14,7 @@ export const NAV_LINKS = [
     ],
   },
   { href: "/careers", label: "Careers", key: "careers" },
+  { href: "/projects", label: "Projects & Gallery", key: "projects" },
   { href: "/contact", label: "Contact", key: "contact" },
 ];
 

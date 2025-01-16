@@ -60,7 +60,7 @@ function Footer() {
             {/* Social Icons */}
             <div className="flex  gap-4 mt-4">
               <a
-                href="https://www.facebook.com"
+                href="https://www.facebook.com/profile.php?id=61566386114347"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-[#C8102E] transition-all"
@@ -76,7 +76,7 @@ function Footer() {
                 <LinkedInIcon fontSize="large" />
               </a>
               <a
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/adislimited/profilecard/?igsh=MW4wMjduejdxNjVxZg=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-[#E4405F] transition-all"
