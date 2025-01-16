@@ -2,7 +2,7 @@ import React from 'react'
 
 function Section() {
   return (
-    <section className="bg-white py-10 text-gray-800">
+    <section className="bg-white pt-8  text-gray-800">
     <div className="container mx-auto px-4 py-8">
       {/* Top Section: Header and Description */}
       <div className="flex flex-col md:flex-row items-start  justify-between mb-8">

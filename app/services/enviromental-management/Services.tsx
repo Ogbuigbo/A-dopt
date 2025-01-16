@@ -72,7 +72,7 @@ const EnvironmentalServices = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-6 md:py-8">
+    <div className="max-w-6xl mx-auto px-6 pb-8 ">
       {/* Header Section */}
       <h1 className="text-3xl font-bold text-center text-gray-800 mb-8 uppercase tracking-wide">
         Environmental Management & Consultancy Services

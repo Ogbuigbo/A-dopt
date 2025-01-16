@@ -27,7 +27,7 @@ function SectionOne() {
       {services.map((service, index) => (
         <div
           key={index}
-          className={`flex flex-col md:flex-row items-center gap-10 my-12 md:py-6 ${
+          className={`flex flex-col md:flex-row items-center gap-10 my-6 md:py-4 ${
             index % 2 !== 0 ? 'md:flex-row-reverse' : ''
           }`}
         >

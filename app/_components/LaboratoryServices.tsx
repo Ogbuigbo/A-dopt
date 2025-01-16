@@ -4,7 +4,7 @@ import React from 'react';
 
 function LaboratoryServices() {
   return (
-    <section className="py-16 md:px-10 px-6 xl:px-[150px] lg:px-[50px] bg-[#f8f9fa]">
+    <section className="py-10 md:px-10 px-6 xl:px-[150px] lg:px-[50px] bg-[#f8f9fa]">
       <div className="mx-auto max-w-screen-xl flex flex-col lg:flex-row items-start gap-16">
         
         {/* Text Section */}

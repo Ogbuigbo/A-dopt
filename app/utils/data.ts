@@ -13,6 +13,7 @@ export const NAV_LINKS = [
       // { label: "Procurement and Logistics ", href: "/services/testing" },
     ],
   },
+  { href: "/careers", label: "Careers", key: "careers" },
   { href: "/contact", label: "Contact", key: "contact" },
 ];
 
