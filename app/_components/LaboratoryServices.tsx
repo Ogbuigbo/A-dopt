@@ -4,8 +4,8 @@ import React from 'react';
 
 function LaboratoryServices() {
   return (
-    <section className="py-24 md:px-10 px-6 xl:px-[150px] lg:px-[50px] bg-[#f8f9fa]">
-      <div className="mx-auto max-w-screen-xl flex flex-col lg:flex-row items-center gap-16">
+    <section className="py-16 md:px-10 px-6 xl:px-[150px] lg:px-[50px] bg-[#f8f9fa]">
+      <div className="mx-auto max-w-screen-xl flex flex-col lg:flex-row items-start gap-16">
         
         {/* Text Section */}
         <div className="lg:w-1/2 space-y-8">

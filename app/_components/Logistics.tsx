@@ -3,7 +3,7 @@ import React from 'react';
 
 function ProcurementSolutions() {
   return (
-    <section className="py-24 md:px-10 px-6 xl:px-[150px] lg:px-[50px]">
+    <section className="py-8 md:px-10 px-6 xl:px-[150px] lg:px-[50px]">
       <div className="mx-auto max-w-screen-xl flex flex-col lg:flex-row items-center gap-16">
         
         {/* Image Section */}

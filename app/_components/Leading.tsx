@@ -6,7 +6,7 @@ import CountUp from "react-countup";
 
 function Leading() {
   return (
-    <section className="py-24 md:px-10 bg-[#f8f9fa] px-6 xl:px-[150px] lg:px-[50px]">
+    <section className="py-6 md:py-4 md:px-10 bg-[#f8f9fa] px-6 xl:px-[150px] lg:px-[50px]">
       <div className="mx-auto max-w-screen-xl flex flex-col lg:flex-row items-center gap-16">
         {/* Text Section */}
         <div className="lg:w-1/2 space-y-8">

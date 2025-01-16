@@ -26,7 +26,7 @@ function Section() {
   ];
 
   return (
-    <section className="py-[35px] md:px-10 px-6 xl:px-[150px] bg-[#f8f9fa]">
+    <section className="py-[8px] md:px-10 px-6 xl:px-[150px] bg-[#f8f9fa]">
       <div className="mx-auto max-w-screen-xl space-y-16">
         {/* Title Section */}
         <div className="text-center">

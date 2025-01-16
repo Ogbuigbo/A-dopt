@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../_components/Header'
 import PoliciesComponent from './Policies'
+import Header from './Header'
 
 function page() {
   return (

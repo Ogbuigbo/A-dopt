@@ -23,11 +23,11 @@ function SectionOne() {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-6 md:py-12">
+    <div className="max-w-6xl mx-auto px-6 ">
       {services.map((service, index) => (
         <div
           key={index}
-          className={`flex flex-col md:flex-row items-center gap-10 my-12 md:py-12 ${
+          className={`flex flex-col md:flex-row items-center gap-10 my-12 md:py-6 ${
             index % 2 !== 0 ? 'md:flex-row-reverse' : ''
           }`}
         >
