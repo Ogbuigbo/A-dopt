@@ -55,6 +55,12 @@ function Header() {
     setMobileDropdown((prev) => (prev === key ? null : key));
   };
 
+  const handleLinkClick = (link: NavLink) => {
+    setActiveLink(link.href);
+    setNav(false);
+  };
+
+
   return (
     <header
   className={`fixed top-0 left-0 w-full px-6  lg:px-12 flex flex-col py-2 justify-between z-50 transition-all duration-300 ease-in-out ${
@@ -152,6 +158,37 @@ function Header() {
         <X onClick={handleClick} className="w-8 h-8 cursor-pointer" />
       )}
     </div>
+
+
+
+           {/* Mobile Navigation Menu */}
+           <div
+        className={`absolute top-[120px] left-0 w-full bg-white bg-opacity-50 shadow-md text-white transform z-50 ${
+          !nav
+            ? 'opacity-0 pointer-events-none translate-y-full'
+            : 'opacity-100 pointer-events-auto translate-y-0'
+        } transition-all duration-500 ease-in-out`}
+      >
+        <ul className="py-3 flex flex-col items-center gap-2">
+          {NAV_LINKS.map((link: NavLink) => (
+            <Link
+              href={link.href}
+              key={link.key}
+              className={`regular-16 text-black text-center hover:text-[#5f1928] border-b-[#5f1928] hover:border-b-2 bg-white cursor-pointer transition-all hover:font-bold w-full py-2 active:text-[#5f1928] ${
+                activeLink === link.href
+                  ? 'text-[#5f1928] border-b border-b-[#5f1928] font-bold text-[16px]'
+                  : 'hover:text-[#5f1928] hover:border-b hover:border-b-[#5f1928] text-[14px]'
+              }`}
+              onClick={() => {
+                handleLinkClick(link);
+                handleClick(); // Close the mobile menu when a link is clicked
+              }}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </ul>
+      </div>
   </div>
 </header>
 

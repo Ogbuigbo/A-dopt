@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from 'react';
 import Image from 'next/image';
@@ -31,21 +31,39 @@ const projects: Project[] = [
   },
 
   {
-    title: "Automation Solutions",
+    title: "Oil Spillage Solutions",
     description: "Advanced automation for industrial sectors to improve efficiency and safety.",
-    imageUrl: "https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734512732/freepik-export-20241218090432gocp_lep3fo.png",
+    imageUrl: "https://res.cloudinary.com/dpkn1ppzj/image/upload/v1736696912/spill_tcvb7p.png",
     details: "Our automation solutions are designed to streamline industrial processes. From controlling machinery to improving workflow efficiency, our approach helps industries save time and reduce human error."
   },
   {
-    title: "Environmental Project",
+    title: "Pipe Laying Project",
     description: "Environmental sustainability solutions for a greener future.",
-    imageUrl: "https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734511037/freepik-export-20241218083619fTKO_jkq1pb.png",
+    imageUrl: "https://res.cloudinary.com/dpkn1ppzj/image/upload/v1735128319/PHOTO-2024-12-20-16-05-19_jrkuwo.jpg",
     details: "Our environmental projects focus on sustainable energy solutions, waste management, and reducing the carbon footprint. We provide comprehensive solutions to ensure a sustainable and green future."
   },
   {
-    title: "Laboratory Solutions",
+    title: "WaterBoreHole Solutions",
     description: "Providing high-quality testing solutions for various laboratory needs.",
-    imageUrl: "https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734350227/laboratory_cu9e9e.png",
+    imageUrl: "https://res.cloudinary.com/dpkn1ppzj/image/upload/v1734509360/project1_qbhjoz.png",
+    details: "We offer innovative laboratory solutions with advanced equipment for precise testing in various fields. Our labs are equipped with the latest technologies to meet industry standards."
+  },
+  {
+    title: "Drenching Solutions",
+    description: "Advanced automation for industrial sectors to improve efficiency and safety.",
+    imageUrl: "https://res.cloudinary.com/dpkn1ppzj/image/upload/v1737105643/lred_okot3l.png",
+    details: "Our automation solutions are designed to streamline industrial processes. From controlling machinery to improving workflow efficiency, our approach helps industries save time and reduce human error."
+  },
+  {
+    title: "RoadConstruction Project",
+    description: "Environmental sustainability solutions for a greener future.",
+    imageUrl: "https://res.cloudinary.com/dpkn1ppzj/image/upload/v1737105643/caterpillar_erjtkw.png",
+    details: "Our environmental projects focus on sustainable energy solutions, waste management, and reducing the carbon footprint. We provide comprehensive solutions to ensure a sustainable and green future."
+  },
+  {
+    title: "Water Solutions",
+    description: "Providing high-quality testing solutions for various laboratory needs.",
+    imageUrl: "https://res.cloudinary.com/dpkn1ppzj/video/upload/v1737105806/DSCN0902_hfu8sv.mov",
     details: "We offer innovative laboratory solutions with advanced equipment for precise testing in various fields. Our labs are equipped with the latest technologies to meet industry standards."
   }
   
@@ -61,6 +79,27 @@ const TopSection = () => {
 
   const handleCloseModal = () => {
     setActiveProject(null);
+  };
+
+  const renderMedia = (url: string) => {
+    if (url.endsWith(".mov") || url.endsWith(".mp4")) {
+      return (
+        <video controls className="w-full h-[200px] sm:h-[250px] md:h-[300px] object-cover">
+          <source src={url} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      );
+    } else {
+      return (
+        <Image
+          src={url}
+          alt="Project image"
+          width={500}
+          height={350}
+          className="w-full h-[200px] sm:h-[250px] md:h-[300px] object-cover"
+        />
+      );
+    }
   };
 
   return (
@@ -81,13 +120,7 @@ const TopSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <div key={index} className="relative group overflow-hidden rounded-lg border shadow-md">
-              <Image
-                src={project.imageUrl}
-                alt={project.title}
-                width={500}
-                height={350}
-                className="w-full h-[200px] sm:h-[250px] md:h-[300px] object-cover"
-              />
+              {renderMedia(project.imageUrl)}
               <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center text-white text-lg p-4 transition-opacity duration-300">
                 <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
                 <p>{project.description}</p>
@@ -108,13 +141,7 @@ const TopSection = () => {
             <div className="bg-white rounded-lg p-8 max-w-4xl w-full">
               <div className="flex flex-col md:flex-row gap-8">
                 <div className="md:w-1/2">
-                  <Image
-                    src={activeProject.imageUrl}
-                    alt={activeProject.title}
-                    width={500}
-                    height={350}
-                    className="rounded-lg object-cover"
-                  />
+                  {renderMedia(activeProject.imageUrl)}
                 </div>
                 <div className="md:w-1/2">
                   <h3 className="text-3xl font-bold">{activeProject.title}</h3>

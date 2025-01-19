@@ -53,12 +53,12 @@ function Footer() {
               <span>ADIS</span>
               <span>LIMITED</span>
             </h1>
-            <p className="mt-2 text-justify text-white text-[12px] xl:text-[16px] xl:min-w-[471px] font-medium lg:min-w-[390px] w-full">
+            <p className="mt-2 lg:text-justify text-white text-[12px] xl:text-[16px] xl:min-w-[471px] font-medium lg:min-w-[390px] w-full text-center">
               At ADIS, we are dedicated to providing top-notch services with a commitment to quality, precision, and innovation. Explore our offerings and let us help you achieve your goals.
             </p>
 
             {/* Social Icons */}
-            <div className="flex  gap-4 mt-4">
+            <div className="flex justify-center items-center  gap-4 mt-4">
               <a
                 href="https://www.facebook.com/profile.php?id=61566386114347"
                 target="_blank"
@@ -68,7 +68,7 @@ function Footer() {
                 <FacebookIcon fontSize="large" />
               </a>
               <a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/adislimited-adisl-95349a342"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-[#0A66C2] transition-all"
@@ -148,14 +148,14 @@ function Footer() {
 
             {/* Scroll-to-Top Button */}
             {showButton && (
-              <button
-                onClick={scrollToTop}
-                className="fixed xl:bottom-[270px] lg:bottom-[270px] md:bottom-[80px] bottom-[50px] xl:right-[100px] lg:right-[50px] md:right-[20px] bg-[#C8102E] text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-[#A10D24] transition-all duration-300 shadow-lg"
-                aria-label="Scroll to Top"
-              >
-                <CornerRightUp className="text-white" />
-              </button>
-            )}
+								<div
+									className="mt-[80px] ml-[10px] fixed xl:bottom-[270px] lg:bottom-[270px] md:bottom-[80px] bottom-[50px] xl:right-[100px] lg:right-[50px] xs:right-[20px] xxxs:right-[10px] md:right-[20px]  bg-[#C8102E] hover:bg-[#A10D24] w-10 h-10 rounded-full flex items-center justify-center z-50 cursor-pointer"
+									onClick={scrollToTop}
+								>
+                                    <CornerRightUp className="text-white" />
+                                </div>
+							
+						)}
           </div>
         </div>
       </div>
