@@ -1,0 +1,598 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.next
+
+# testing
+
+
+# next.js
+
+
+# production
+
+
+# misc
+
+
+# debug
+
+
+# env files (can opt-in for committing if needed)
+.env*
+
+
+import { Table } from "flowbite-react";
+import { SearchInput } from "../../SearchInput";
+import * as React from "react";
+import { ItemInput } from "../../../../@types";
+import { useEffect, useState } from "react";
+import {
+  CloseIcon,
+  CloseIconSmall,
+  RemoveIcon,
+  SearchIcon,
+} from "../../../../assets/icons";
+import { TableColumn } from ".";
+import { useInventorySearch } from "../../../../hooks/inventory";
+import { DropdownComponent } from "../../../core/Forms";
+import { VariationItem } from "../../../../@types/inventory";
+import toast from "react-hot-toast";
+import { useTranslation } from "react-i18next";
+import { calculateAdjustedRate } from "../../../../utils";
+import DeleteIcon from "../../../../assets/icons/DeleteIcon"
+
+export interface Props {
+  item: ItemInput;
+  columns: TableColumn[];
+  index: number;
+  isSearchInput: boolean;
+  removeItem: (index: number) => void;
+  updateError: (index: number, error: string[]) => void;
+  updateCell: (
+    rowIndex: number,
+    columnId: string,
+    value: string | number,
+  ) => void;
+  updateRow: (rowIndex: number, updatedRow: any) => void;
+  errors: string[];
+  onUpdateVariation?: (id: number, field: string, value: string) => void;
+  variationList?: any;
+  variations?: VariationItem[];
+  isInvoice: boolean;
+  handleClearErrors: () => void;
+  isSidebarCollapsed: boolean;
+  exchangeRate?: number;
+  currency: string;
+}
+export interface LineItemRef {
+  validate: () => boolean;
+}
+let originalQuantity: number = 0;
+
+const LineItem: React.ForwardRefRenderFunction<LineItemRef, Props> = (
+  {
+    isSearchInput,
+    columns,
+    index,
+    removeItem,
+    updateRow,
+    updateCell,
+    item,
+    errors,
+    updateError,
+    onUpdateVariation,
+    isInvoice,
+    handleClearErrors,
+    // isSidebarCollapsed,
+    exchangeRate,
+    currency,
+  },
+  ref,
+) => {
+  const { t } = useTranslation("invoices");
+  const [quantityValue, setQuantityValue] = React.useState<number | undefined>(
+    undefined,
+  );
+  const [selectedItems, setSelectedItems] = React.useState<ItemInput[]>([]);
+  const [items, setItems] = useState<ItemInput[]>([]);
+  const originalQuantityRef = React.useRef<number>(0);
+
+  useEffect(() => {
+    originalQuantityRef.current = item.quantity as number;
+  }, [item]);
+
+  const handleQuantityChange = (
+    field: keyof ItemInput,
+    value: number | string,
+  ) => {
+    const quantityValue = Number(value);
+    const originalQuantity = originalQuantityRef.current;
+  
+    if (quantityValue > originalQuantity) {
+      toast.error("Typed quantity exceeds original quantity", {
+        duration: 5000,
+      });
+    } else {
+      // Remove quantity error when valid input is provided
+      const newErrors = errors.filter((err) => err !== "quantity");
+      updateError(index, newErrors);
+    }
+  
+    setQuantityValue(quantityValue);
+    updateCell(index, field as string, value);
+  };
+  
+
+  useEffect(() => {
+    if (item && item.quantity) {
+      setQuantityValue(item.quantity);
+    }
+  }, [item]);
+
+  const handleUpdate = (
+    field: keyof ItemInput,
+    value: string | number,
+    label: string,
+  ) => {
+    updateCell(index, field as string, value);
+  
+    if (field === "rate") {
+      setSelectedVariation("");
+    }
+  
+    if (errors?.length > 0) {
+      // Remove the error from the specific field
+      const newErrors = errors.filter((err) => err !== field);
+      updateError(index, newErrors);
+    }
+  
+    if (field === "variations") {
+      validateVariation();
+    }
+  };
+  
+
+  const {
+    data: inventories,
+    isSearching: isInventorySearching,
+    handleSearch: handleInventorySearch,
+  } = useInventorySearch();
+
+  const [selectedVariation, setSelectedVariation] = React.useState<string>("");
+  const [variationError, setVariationError] = React.useState<string>("");
+  const [selectedInventory, setSelectedInventory] = React.useState<any>({});
+
+  const handleInventorySearchDebounced = React.useCallback(
+    handleInventorySearch,
+    [],
+  );
+
+  const variationTypesOptions =
+    item.variations?.map((variation) => ({
+      value: variation.type,
+      label: variation.type,
+    })) || [];
+
+  const [selectedItem, setSelectedItem] = React.useState<ItemInput | null>(
+    null,
+  );
+  const [selectedVariationType, setSelectedVariationType] =
+    React.useState<string>("");
+  const [adjustedRate, setAdjustedRate] = React.useState<number>(0);
+
+  // Calculate adjusted rate when exchange rate or selected item/variation changes
+  // useEffect(() => {
+  //   if (selectedItem) {
+  //     const selectedVariationObject = selectedItem.variations?.find((v) => v.type === selectedVariationType);
+
+  //     const baseRate = selectedVariationObject?.price || selectedItem.rate || 0;
+  //     const newAdjustedRate = calculateAdjustedRate(baseRate, exchangeRate);
+  //     setAdjustedRate(newAdjustedRate);
+
+  //     // Update the row with the new adjusted rate
+  //     const updatedRow = {
+  //       ...selectedItem,
+  //       quantity: quantityValue || 1,
+  //       rate: newAdjustedRate,
+  //       variation: selectedVariationObject || undefined,
+  //     };
+  //     updateRow(index, updatedRow);
+  //   }
+  // }, [selectedItem, selectedVariationType, exchangeRate, quantityValue, index, updateRow]);
+
+  // const handleItemSelect = React.useCallback(
+  //   (itemData: ItemInput | null, variationType: string) => {
+  //     if (itemData) {
+  //       if (itemData.stockStatus !== 'out-of-stock' && !itemData.isArchived) {
+  //         setSelectedItem(itemData);
+  //         setSelectedVariationType(variationType);
+  //         setVariationError('');
+  //       } else {
+  //         setVariationError(itemData.isArchived ? 'Item is archived' : 'Item is out of stock');
+  //       }
+  //     } else {
+  //       updateRow(index, { id: '', name: '', quantity: 0, rate: 0 });
+  //       setSelectedItem(null);
+  //       setSelectedVariationType('');
+  //       setVariationError('');
+  //     }
+  //   },
+  //   [index, updateRow],
+  // );
+
+  const handleItemSelect = React.useCallback(
+    (itemData: ItemInput | null, selectedVariationType: string) => {
+      if (itemData) {
+        if (itemData.stockStatus !== "out-of-stock") {
+          if (!itemData.isArchived) {
+            const { variations, ...rest } = itemData;
+
+            const selectedVariationObject = itemData?.variations?.find(
+              (v: { type: string }) => v.type === selectedVariationType,
+            );
+
+            if (selectedVariationObject) {
+              originalQuantity = selectedVariationObject.quantity || 0;
+            } else {
+              originalQuantity = itemData.quantity || 0;
+            }
+
+            const selectedVariationQuantity =
+              selectedVariationObject?.quantity || 0;
+            const adjustedRate = calculateAdjustedRate(
+              selectedVariationObject?.price || itemData.rate || 0,
+              exchangeRate,
+            );
+
+            const updatedRow: any = {
+              ...rest,
+              quantity: 1,
+              rate: selectedVariationObject
+                ? selectedVariationObject.price
+                : itemData.rate || 0,
+              variation: selectedVariationObject || undefined,
+            };
+            const updatedRoww =
+              itemData.variations && itemData.variations?.length > 0
+                ? {
+                    ...rest,
+                    id: itemData.id,
+                    name: itemData.name,
+                    variations: itemData.variations,
+                    quantity: quantityValue,
+                    rate: selectedVariationObject?.price,
+                    variation: {
+                      id: selectedVariationObject?.id,
+                      type: selectedVariationObject?.type,
+                      quantity: selectedVariationObject?.quantity,
+                      rate: selectedVariationObject?.price,
+                    },
+                  }
+                : {
+                    ...rest,
+                    name: itemData.name,
+                    id: itemData.id,
+                    quantity: 1,
+                    rate: itemData.rate,
+                  };
+
+            if (onUpdateVariation && selectedVariationObject) {
+              onUpdateVariation(
+                index,
+                "price",
+                String(selectedVariationObject.price),
+              );
+            }
+
+            updateRow(index, updatedRoww);
+            setVariationError("");
+          } else {
+            setVariationError("Item is archived");
+          }
+        } else {
+          setVariationError("Item is out of stock");
+        }
+      } else {
+        updateRow(index, { id: "", name: "", quantity: 0, rate: 0 });
+        setVariationError("");
+      }
+    },
+    [index, updateRow, onUpdateVariation, quantityValue, exchangeRate],
+  );
+
+  const handleSearchInputSelect = (item: ItemInput | null) => {
+    const defaultVariationType = "DefaultType";
+    handleItemSelect(item, defaultVariationType);
+  };
+
+  const validateVariation = () => {
+    if (Array.isArray(item.variations) && item.variations.length > 0) {
+      if (selectedVariation === "") {
+        setVariationError("Please select a variation");
+      }
+      return selectedVariation !== "";
+    }
+    return true;
+  };
+
+  useEffect(() => {
+    if (
+      item &&
+      item.variations &&
+      item.variations.length > 0 &&
+      !selectedVariation
+    ) {
+      setSelectedVariation(item.variations[0].type);
+      handleItemSelect(item, item.variations[0].type);
+    }
+  }, [item, selectedVariation]);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const inputWidth = isSidebarCollapsed
+    ? "w-full "
+    : "md:w-[170px] lg:w-[250px] biglg:w-[350px] xl:w-[310px] 2xl:w-[370px] 3xl:w-[370px] bigmd:w-[160px] 4xl:w-[320px]";
+
+  return (
+    <>
+      <Table.Row key={index} className=" no-border">
+        {columns.map(({ label }, columnIndex) => (
+          <Table.Cell
+            key={columnIndex}
+            className={`
+              ${columnIndex === 0 ? "pr-[20px] !px-3" : "!px-3"}
+              ${columnIndex === 0 ? "w-[100px]" : "w-[150px] md:w-[150px]"}
+              no-border
+            `}
+          >
+            {columnIndex === 0 ? (
+              isSearchInput ? (
+                <div className="mt-[-2.9em] relative w-full xl:w-[370px]">
+                  <SearchInput
+                    placeholder="Enter Item Name"
+                    data={inventories}
+                    displayKey="name"
+                    isLoading={isInventorySearching}
+                    emptyMessage={"No Items yet"}
+                    classNames={`placeholder:text-[#B4B4B4] placeholder:text-[13.25px] bg-white w-full  border rounded-md placeholder:text-[#A4A4A4] ${
+                      variationError || errors.includes("name")
+                        ? "border-red-500"
+                        : "border-[#A4A4A4]"
+                    }  ${inputWidth}`}
+                    // value={item?.id}
+                    style={{ width: "100%" }}
+                    value={item?.name || ""}
+                    selected={item.id ? item : null}
+                    clearIcon={CloseIconSmall}
+                    clearIconClass="xl:mr-[1em] md:mr-[1.7em] lg:mr-[1.2em] biglg:mr-[2em] bigmd:mr-[1.3em] 2xl:mr-[4em]  3xl:mr-[4em] xl:mt-[0.4em] biglg:mt-[0.8em] text-[#212121] "
+                    handleChangeText={handleInventorySearchDebounced}
+                    onSelect={handleSearchInputSelect}
+                    dropdownClassName="xl:w-[310px] lg:w-[250px] 2xl:w-[370px]  md:w-[170px]  biglg:w-[350px] bigmd:w-[160px] 3xl:w-[370px] 4xl:w-[320px] lg:[120px] "
+                    dropdownStyle={{
+                      maxHeight: "800px",
+                      overflowY: "auto",
+                    }}
+                    searchKey={"name"}
+                    icon={<SearchIcon />}
+                  />
+                  {variationError && (
+                    <div className="text-red-500 text-xs  absolute border-red-500'">
+                      {variationError}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="xl:w-[370px] w-full">
+                  <input
+                    type="text"
+                    className={`placeholder:text-[13.25px] bg-white placeholder:text-[#B4B4B4] rounded-md border border-[#A4A4A4] w-full md:w-[100%] lg:w-[250px] biglg:w-[100%] xl:w-[100%] 2xl:w-[100%] 3xl:w-[100%] bigmd:w-[100%] 4xl:w-[100%] focus:outline-none focus:shadow-outline appearance-none focus:ring-0" ${
+                      errors.includes("name") ? "border-red-500" : ""
+                    } ${
+                      item?.name
+                        ? "focus:outline-none focus:border-[#138EFF] focus:ring-2 focus:ring-[#138EFF]"
+                        : ""
+                    }`}
+                    placeholder="Enter Item Name"
+                    value={item?.name}
+                    onChange={({ target }) =>
+                      handleUpdate("name", target.value, label)
+                    }
+                  />
+                </div>
+              )
+            ) : columnIndex === 1 && isInvoice ? (
+              <div className="mt-[-1.1em] max-w-[200px]">
+                <DropdownComponent
+                  options={variationTypesOptions}
+                  value={selectedVariation}
+                  onChange={(name, value) => {
+                    handleItemSelect(item, value);
+                  }}
+                  selectedValue={selectedVariation}
+                  setSelectedValue={setSelectedVariation}
+                  placeholder={
+                    item &&
+                    item.id &&
+                    (!Array.isArray(item.variations) ||
+                      item.variations.length === 0)
+                      ? "No variations"
+                      : "Select"
+                  }
+                  name="type"
+                  variationIndex={index}
+                  dropdownClassName=""
+                  iconClassName=""
+                  disabled={
+                    item &&
+                    item.id &&
+                    (!Array.isArray(item.variations) ||
+                      item.variations.length === 0)
+                      ? true
+                      : false
+                  }
+                />
+                <div
+                  className="text-white text-xs mt-[1em]"
+                  style={{
+                    visibility:
+                      item &&
+                      item.id &&
+                      (!Array.isArray(item.variations) ||
+                        item.variations.length === 0)
+                        ? "visible"
+                        : "hidden",
+                  }}
+                >
+                  No variations
+                </div>
+              </div>
+            ) : columnIndex === columns.length - 2 && isInvoice ? (
+              <div className="mt-[-3em]">
+                <input
+                  type="text"
+                  className=" md:w-[100px] bigmd:w-[77px]  lg:max-h-[44px] lg:min-h-[44px] md:max-h-[48px] md:min-h-[48px] max-h-[48px] lg:w-[150px] biglg:w-[110px] 2xl:w-[160px] 3xl:w-[210px] 4xl:w-[300px] xl:w-[150px] bg-white placeholder:text-[#B4B4B4] rounded-md border border-[#A4A4A4] focus:outline-none focus:shadow-outline appearance-none focus:ring-0  "
+                  readOnly
+                  placeholder="Amount"
+                  value={
+                    !isNaN(Number(quantityValue)) && !isNaN(Number(item?.rate))
+                      ? (
+                          Number(quantityValue) *
+                          Number(
+                            exchangeRate
+                              ? (item?.rate ?? 0) / (exchangeRate ?? 1)
+                              : item?.rate,
+                          )
+                        ).toFixed(2)
+                      : ""
+                  }
+                />
+              </div>
+            ) : columnIndex === columns.length - 2 ? (
+              <div>
+                <input
+                  type="text"
+                  className=" md:w-[100px] bigmd:w-[100px] lg:w-[150px] biglg:w-[160px] 2xl:w-[160px] 3xl:w-[210px] 4xl:w-[300px] xl:w-[220px] bg-white placeholder:text-[#B4B4B4] rounded-md border border-[#A4A4A4] "
+                  readOnly
+                  placeholder="Amount"
+                  value={
+                    !isNaN(Number(item?.quantity)) && !isNaN(Number(item?.rate))
+                      ? (Number(item?.quantity) * Number(item?.rate)).toFixed(2)
+                      : ""
+                  }
+                />
+              </div>
+            ) : columnIndex === columns.length - 4 && isInvoice ? (
+              <div
+                className="mt-[-3em] w-full"
+                style={{ position: "relative" }}
+              >
+                <input
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  className="bg-white placeholder:text-[#B4B4B4] lg:max-h-[44px] lg:min-h-[44px] md:max-h-[48px] md:min-h-[48px] max-h-[48px] rounded-md border border-[#A4A4A4]  placeholder:text-[13.25px] md:w-[70px] bigmd:w-[77px] lg:w-[150px] biglg:w-[110px] xl:w-[150px] 2xl:w-[160px] 3xl:w-[210px] 4xl:w-[300px] focus:outline-none focus:shadow-outline appearance-none focus:ring-0"
+                  placeholder="Quantity"
+                  value={quantityValue}
+                  onChange={({ target }) => {
+                    const newValue = Number(target.value);
+                    setQuantityValue(newValue ?? 0);
+                    handleQuantityChange("quantity", newValue ?? 0);
+                  }}
+                />
+                {/* {quantityValue !== undefined && quantityValue > originalQuantity && (
+                <div style={{ position: 'absolute', top: '100%', left: 0, color: 'red', fontSize: '0.75rem', marginTop: '0.25rem' }}>
+                  Typed quantity exceeds original quantity
+                </div>
+              )} */}
+              </div>
+            ) : columnIndex === columns.length - 4 ? (
+              <div>
+                <input
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  className="bg-white placeholder:text-[#B4B4B4]  lg:max-h-[44px] lg:min-h-[44px] md:max-h-[48px] md:min-h-[48px] max-h-[48px] rounded-md border border-[#A4A4A4]  placeholder:text-[13.25px] md:w-[100px] bigmd:w-[100px] lg:w-[150px] biglg:w-[160px] xl:w-[220px] 2xl:w-[200px] 3xl:w-[210px] 4xl:w-[300px]"
+                  placeholder={
+                    label.toLowerCase() === "quantity" ? " Quantity" : " Rate"
+                  }
+                  value={
+                    Number(item?.[label.toLowerCase()])
+                      ? Number(item?.[label.toLowerCase()] as number)
+                      : ""
+                  }
+                  onChange={({ target }) =>
+                    handleUpdate(
+                      label.toLowerCase() as keyof ItemInput,
+                      target.value,
+                      label,
+                    )
+                  }
+                />
+              </div>
+            ) : columnIndex === columns.length - 1 && isInvoice ? (
+              <div className="mt-[-2.5em]">
+                {index !== 0 && (
+                  <button type="button" onClick={() => removeItem(index)}>
+                    <DeleteIcon /> <span className="text-xl text-red "></span>
+                  </button>
+                )}
+              </div>
+            ) : columnIndex === columns.length - 1 ? (
+              <div className="mt-[0.5em]">
+                {index !== 0 && (
+                  <button type="button" onClick={() => removeItem(index)}>
+                    <DeleteIcon /> <span className="text-xl text-red "></span>
+                  </button>
+                )}
+              </div>
+            ) : columnIndex === columns.length - 3 && isInvoice ? (
+              <div className="mt-[-3em]">
+                <input
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  className="bg-white placeholder:text-[#B4B4B4]  lg:max-h-[44px] lg:min-h-[44px] md:max-h-[48px] md:min-h-[48px] max-h-[48px] rounded-md border border-[#A4A4A4]  placeholder:text-[13.25px] md:w-[90px] bigmd:w-[77px] lg:w-[150px] biglg:w-[110px] xl:w-[160px] 2xl:w-[160px] 3xl:w-[210px] 4xl:w-[300px] focus:outline-none focus:shadow-outline appearance-none focus:ring-0 "
+                  placeholder="Rate"
+                  value={
+                    exchangeRate
+                      ? ((item?.rate ?? 0) / (exchangeRate ?? 1))?.toFixed(2)
+                      : item?.rate
+                  }
+                  onChange={({ target }) =>
+                    handleUpdate(
+                      "rate",
+                      parseFloat(target.value),
+                      label.toLowerCase(),
+                    )
+                  }
+                />
+              </div>
+            ) : columnIndex === columns.length - 3 ? (
+              <div className="mt-[em]">
+                <input
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  className="bg-white placeholder:text-[#B4B4B4]  lg:max-h-[44px] lg:min-h-[44px] md:max-h-[48px] md:min-h-[48px] max-h-[48px] rounded-md border border-[#A4A4A4]  placeholder:text-[13.25px] md:w-[100px] bigmd:w-[100px] lg:w-[150px] biglg:w-[150px] xl:w-[220px] 2xl:w-[160px] 3xl:w-[210px] 4xl:w-[300px]"
+                  placeholder="Rate"
+                  value={item?.rate}
+                  onChange={({ target }) =>
+                    handleUpdate(
+                      "rate",
+                      parseFloat(target.value),
+                      label.toLowerCase(),
+                    )
+                  }
+                />
+              </div>
+            ) : null}
+          </Table.Cell>
+        ))}
+      </Table.Row>
+    </>
+  );
+};
+export default React.forwardRef(LineItem);
+
+
+

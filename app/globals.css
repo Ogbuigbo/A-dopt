@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overscroll-behavior: none;
+}
+
+
+html {
+ scroll-behavior: smooth;
+ overscroll-behavior-y: none;
+}
+
+
+.path-animate {
+  animation: zigzag 6s ease-in-out 1; /* Runs once, then stops */
+  animation-fill-mode: forwards; /* Retains the final state */
+}
+
+@keyframes zigzag {
+  0% {
+    stroke-dasharray: 0, 100; /* Line starts invisible */
+  }
+  50% {
+    stroke-dasharray: 100, 0; /* Fully visible */
+  }
+  100% {
+    stroke-dasharray: 0, 100; /* Invisible again */
+  }
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes heroScale {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 105%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.animate-heroScale {
+  animation: heroScale 10s infinite alternate;
+}

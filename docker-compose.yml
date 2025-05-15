@@ -1,0 +1,63 @@
+services:
+  # adis_nginx:
+  #   image: 'nginx:1.27.3-bookworm'
+  #   container_name: adis-frontend-con-nginx
+  #   volumes:
+  #     - ./nginx/production.conf:/etc/nginx/nginx.conf
+  #     - ./certs:/certs # Add certificates volume
+  #   command: ['nginx', '-g', 'daemon off;']
+  #   restart: always
+  #   ports:
+  #     - 443:443 # Expose port 443 instead of 80
+  #   networks:
+  #     - public
+  #   depends_on:
+  #     adis_web:
+  #       condition: service_started
+  #   healthcheck:
+  #     test: ['CMD', 'service', 'nginx', 'status']
+  #     interval: 30s
+  #     timeout: 5s
+  #     retries: 5
+  #     start_period: 10s
+  #     start_interval: 1s
+  # The main application service
+  adis_web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # target: production
+    container_name: adis-web-con
+    # env_file:
+    #   - .env.production
+    ports:
+      - 3000:3000
+    volumes:
+      - 'app_build:/app/.next'
+    command: ['yarn', 'start']
+    restart: always
+    networks:
+      - webserver-network
+    depends_on:
+      adis_app_build:
+        condition: service_completed_successfully
+  # The one-off container that builds the application
+  adis_app_build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    # env_file:
+    #   - .env.production
+    volumes:
+      - 'app_build:/app/.next'
+    command: ['yarn', 'build']
+
+    
+volumes:
+  app_build: {}
+
+networks:
+  webserver-network:
+    external: true
+    name: webserver-network
