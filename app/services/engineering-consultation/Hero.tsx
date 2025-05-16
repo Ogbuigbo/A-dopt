@@ -78,7 +78,7 @@ const Hero = () => {
                 controls
                 autoPlay
                 className="w-full h-[400px] object-contain rounded-lg"
-                src="https://res.cloudinary.com/dpkn1ppzj/video/upload/v1734684508/3ac9f25821ec47c19edd7d972151793b_gmf9u9.mp4" // Replace with your video link
+                src="https://res.cloudinary.com/dpkn1ppzj/video/upload/v1747398236/VIDEO-2025-05-05-11-28-36_u7qcez.mp4" // Replace with your video link
               />
             </div>
           </div>
